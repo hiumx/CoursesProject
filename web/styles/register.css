@@ -10,7 +10,7 @@ body {
     /* Add other styles as needed */
 }
 
-.login__wrapper {
+.register__wrapper {
     background-color: #5d9fe1;
     height: 100vh;
     display: flex;
@@ -18,7 +18,7 @@ body {
     justify-content: center;
 }
 
-.login__content {
+.register__content {
     min-width: 400px;
     background: #fff;
     margin: 0 auto;
@@ -26,7 +26,7 @@ body {
     padding: 38px;
 }
 
-.login__title {
+.register__title {
     text-align: center;
     font-weight: 600;
     font-size: 30px;
@@ -34,33 +34,38 @@ body {
     color: #333;
 }
 
-.login__form {
+.register__form {
 
 }
 
-.login__form__username {
+.register__form__username {
     margin-bottom: 24px;
 }
 
-.login__form__password {
+.register__form__password {
     margin-bottom: 24px;
     position: relative;
 }
 
-.login__form__eye__icon__wrapper {
+.register__form__confirm__password {
+    margin-bottom: 12px;
+    position: relative;
+}
+
+.register__form__eye__icon__wrapper {
     position: absolute;
     top: 24px;
     right: 2px;
     cursor: pointer;
 }
 
-.login__form__eye__icon {
+.register__form__eye__icon {
     font-size: 14px;
     color: #333;
     padding: 4px;
 }
 
-.login__form__input {
+.register__form__input {
     width: 100%;
     border: none;
     outline: none;
@@ -69,17 +74,17 @@ body {
     font-size: 14px;
 }
 
-.login__forgot__password {
+.register__forgot__password {
     display: block;
     text-decoration: none;
     float: right;
 }
 
-.login__forgot__password:hover {
+.register__forgot__password:hover {
     opacity: 0.8;
 }
 
-.login__other__sign__up {
+.register__other__sign__up {
     text-align: center;
     color: #6e6c6c;
 }
@@ -90,7 +95,7 @@ label {
     margin-bottom: 4px;
 }
 
-.login__form__btn {
+.register__form__btn {
     margin-top: 20px;
     width: 100%;
     padding: 9px;
@@ -104,54 +109,54 @@ label {
     cursor: pointer;
 }
 
-.login__form__btn:hover {
+.register__form__btn:hover {
     opacity: 0.8;
 }
 
-.login__other__sign__up {
+.register__other__sign__up {
     margin: 36px 10px;
 }
 
-.login__other__icons {
+.register__other__icons {
     margin-top: 12px;
 }
 
-.login__facebook__icon,
-.login__twitter__icon,
-.login__google__icon {
+.register__facebook__icon,
+.register__twitter__icon,
+.register__google__icon {
     font-size: 30px;
     margin-right: 10px;
     cursor: pointer;
 }
 
-.login__facebook__icon:hover,
-.login__twitter__icon:hover,
-.login__google__icon:hover {
+.register__facebook__icon:hover,
+.register__twitter__icon:hover,
+.register__google__icon:hover {
     opacity: 0.8;
 }
 
-.login__facebook__icon {
+.register__facebook__icon {
     color: #5959b2;
 }
 
-.login__twitter__icon {
+.register__twitter__icon {
     color: #1ea1f1;
 }
 
-.login__google__icon {
+.register__google__icon {
     color: #9f6363;
 }
 
-.login__register {
+.register__register {
     text-align: center
 }
 
-.login__register__question {
+.register__register__question {
     color: #333;
     margin-bottom: 2px;
 }
 
-.login__register__link {
+.register__register__link {
     text-decoration: none;
 }
 

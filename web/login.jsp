@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Login</title>
         <link rel="stylesheet" href="styles/login.css"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     </head>
@@ -56,19 +56,11 @@
                 </div>
                 <div class="login__register">
                     <p class="login__register__question">Do not have account?</p>
-                    <a href="#" class="login__register__link">Register</a>
+                    <a href="http://localhost:6969/courses/register.jsp" class="login__register__link">Register</a>
                 </div>
             </div>
         </div>
         
-        <script type="text/javascript">
-            const passwordInput = document.querySelector('#password');
-            const handleShowPassword = () => {
-                if(passwordInput.type === 'password')
-                    passwordInput.type = 'text';
-                else
-                    passwordInput.type = 'password';
-            };
-        </script>
+        div
     </body>
 </html>
