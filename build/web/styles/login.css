@@ -1,12 +1,13 @@
 
-html {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-.fontAwesome {
-  font-family: 'Helvetica', FontAwesome, sans-serif;
+body {
+    /*font-family: Arial, sans-serif;*/
+    /* Add other styles as needed */
 }
 
 .login__wrapper {
@@ -18,7 +19,7 @@ html {
 }
 
 .login__content {
-    width: 24%;
+    min-width: 400px;
     background: #fff;
     margin: 0 auto;
     border-radius: 28px;
@@ -29,6 +30,8 @@ html {
     text-align: center;
     font-weight: 600;
     font-size: 30px;
+    margin: 10px 0 50px 0;
+    color: #333;
 }
 
 .login__form {
@@ -36,11 +39,25 @@ html {
 }
 
 .login__form__username {
-    margin-bottom: 20px;
+    margin-bottom: 24px;
 }
 
 .login__form__password {
     margin-bottom: 10px;
+    position: relative;
+}
+
+.login__form__eye__icon__wrapper {
+    position: absolute;
+    top: 24px;
+    right: 2px;
+    cursor: pointer;
+}
+
+.login__form__eye__icon {
+    font-size: 14px;
+    color: #333;
+    padding: 4px;
 }
 
 .login__form__input {
@@ -48,9 +65,8 @@ html {
     border: none;
     outline: none;
     border-bottom: 2px solid #e3e3e3;
-    padding: 10px 0;
-    color: #e3e3e3;
-    font-size: 13px;
+    padding: 4px 0;
+    font-size: 14px;
 }
 
 .login__forgot__password {
@@ -70,10 +86,12 @@ html {
 
 label {
     display: block;
+    color: #333;
+    margin-bottom: 4px;
 }
 
 .login__form__btn {
-    margin-top: 40px;
+    margin-top: 20px;
     width: 100%;
     padding: 9px;
     border-radius: 30px;
@@ -90,15 +108,50 @@ label {
     opacity: 0.8;
 }
 
+.login__other__sign__up {
+    margin: 36px 10px;
+}
+
+.login__other__icons {
+    margin-top: 12px;
+}
+
 .login__facebook__icon,
 .login__twitter__icon,
-.login__google__icon{
+.login__google__icon {
     font-size: 30px;
     margin-right: 10px;
     cursor: pointer;
 }
 
+.login__facebook__icon:hover,
+.login__twitter__icon:hover,
+.login__google__icon:hover {
+    opacity: 0.8;
+}
+
+.login__facebook__icon {
+    color: #5959b2;
+}
+
+.login__twitter__icon {
+    color: #1ea1f1;
+}
+
+.login__google__icon {
+    color: #9f6363;
+}
+
 .login__register {
     text-align: center
+}
+
+.login__register__question {
+    color: #333;
+    margin-bottom: 2px;
+}
+
+.login__register__link {
+    text-decoration: none;
 }
 

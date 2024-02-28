@@ -35,9 +35,13 @@
                             type="password" 
                             name="password" 
                             id="password"
-                            class="login__form__input"F
+                            class="login__form__input"
                             placeholder="Type your password"
                         />
+                        <div class="login__form__eye__icon__wrapper" onclick="handleShowPassword()">
+                            <i class="fa-regular fa-eye login__form__eye__icon"></i>
+                        </div>
+                        
                     </div>
                     <a href="#" class="login__forgot__password">Forgot password?</a>
                     <button type="submit" class="login__form__btn">Login</button>
@@ -51,10 +55,20 @@
                     </div>
                 </div>
                 <div class="login__register">
-                    <p>Do not have account?</p>
-                    <a href="#">Register</a>
+                    <p class="login__register__question">Do not have account?</p>
+                    <a href="#" class="login__register__link">Register</a>
                 </div>
             </div>
         </div>
+        
+        <script type="text/javascript">
+            const passwordInput = document.querySelector('#password');
+            const handleShowPassword = () => {
+                if(passwordInput.type === 'password')
+                    passwordInput.type = 'text';
+                else
+                    passwordInput.type = 'password';
+            };
+        </script>
     </body>
 </html>
