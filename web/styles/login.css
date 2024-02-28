@@ -1,0 +1,104 @@
+
+html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.fontAwesome {
+  font-family: 'Helvetica', FontAwesome, sans-serif;
+}
+
+.login__wrapper {
+    background-color: #5d9fe1;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login__content {
+    width: 24%;
+    background: #fff;
+    margin: 0 auto;
+    border-radius: 28px;
+    padding: 38px;
+}
+
+.login__title {
+    text-align: center;
+    font-weight: 600;
+    font-size: 30px;
+}
+
+.login__form {
+
+}
+
+.login__form__username {
+    margin-bottom: 20px;
+}
+
+.login__form__password {
+    margin-bottom: 10px;
+}
+
+.login__form__input {
+    width: 100%;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #e3e3e3;
+    padding: 10px 0;
+    color: #e3e3e3;
+    font-size: 13px;
+}
+
+.login__forgot__password {
+    display: block;
+    text-decoration: none;
+    float: right;
+}
+
+.login__forgot__password:hover {
+    opacity: 0.8;
+}
+
+.login__other__sign__up {
+    text-align: center;
+    color: #6e6c6c;
+}
+
+label {
+    display: block;
+}
+
+.login__form__btn {
+    margin-top: 40px;
+    width: 100%;
+    padding: 9px;
+    border-radius: 30px;
+    border: none;
+    border: none;
+    outline: none;
+    background-color: #7db8e4;
+    color: #fff;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.login__form__btn:hover {
+    opacity: 0.8;
+}
+
+.login__facebook__icon,
+.login__twitter__icon,
+.login__google__icon{
+    font-size: 30px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.login__register {
+    text-align: center
+}
+
