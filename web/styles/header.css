@@ -1,0 +1,79 @@
+:root {
+    --text-color: #333;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 40px;
+    border-bottom: 1px solid #e8ebed;
+}
+
+.header__nav__logo {
+    display: flex;
+    align-items: center;
+}
+
+.header__logo {
+    width: 44px;
+    height: 44px;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.header__bars__icon,
+.header__profile__icon,
+.header__search_icon {
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+.header__bars__icon {
+    padding: 4px 4px 4px 0;
+    font-size: 22px;
+}
+
+.header__profile__icon {
+    padding: 4px 0 4px 4px;
+    font-size: 20px;
+}
+
+.header__search__wrapper {
+    width: 34%;
+    display: flex;
+    align-items: center;
+    padding: 9px;
+    border-radius: 23px;
+    border: 2px solid #d7d7d7;
+}
+
+.header__search__wrapper:focus-within {
+    border-color: #444;
+}
+
+.header__search {
+    width: 100%;
+    border: none;
+    outline: none;
+    margin-left: 6px
+}
+
+.header__profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header__profile__courses {
+    margin-right: 10px;
+    color: var(--text-color);
+    cursor: pointer;
+    padding: 4px;
+}

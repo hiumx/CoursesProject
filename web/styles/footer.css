@@ -1,0 +1,131 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+.footer__wrapper {
+    padding:30px 200px 40px;
+    background-color: #181821;
+}
+
+.footer__info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer__logo__title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.footer__item__link,
+.info__contact__phone,
+.info__contact__email {
+    color: #a9b3bb;
+    font-size: 14px;
+    display: block;
+    margin-bottom: 12px;
+    text-decoration: none;
+}
+
+.footer__item__link:hover {
+    color: #fff;
+}
+
+.footer__item__desc, 
+.footer__copyright {
+    color: #a9b3bb;
+    font-size: 14px;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.footer__logo {
+    width: 40px;
+    height: 40px;
+    margin-right: 12px;
+}
+
+.footer__info__contact__title {
+    color: #fff;
+    margin: 0;
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.footer__info__contact {
+    line-height: 22px;
+    color: #a9b3bb;
+    font-size: 14px;
+}
+
+.info__contact__phone,
+.info__contact__email {
+    margin: 0;
+    display: inline-block;
+}
+
+.info__contact__phone:hover,
+.info__contact__email:hover {
+    opacity: 0.8;
+    color: #a9b3bb;
+}
+
+.info__contact__img {
+    margin-top: 16px;
+}
+
+.footer__info__item {
+    flex: 1;
+}
+
+.footer__item__title {
+    color: #fff;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.footer__copyright__social {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 60px;
+}
+
+.footer__social {
+    display: flex;
+}
+
+.footer__social__item {
+    display: block;
+}
+
+.footer__social__item:hover {
+    opacity: 0.8;
+}
+
+.footer__social__youtube__icon,
+.footer__social__facebook__icon,
+.footer__social__tiktok__icon {
+    font-size: 28px;
+    margin-left: 12px;
+}
+
+.footer__social__youtube__icon {
+    color: #ff0000;
+}
+
+.footer__social__facebook__icon {
+    color: #0866ff;
+}
+
+.footer__social__tiktok__icon {
+    color: #fff;
+}
