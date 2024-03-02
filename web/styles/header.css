@@ -9,6 +9,10 @@
 }
 
 .header__wrapper {
+    position: relative;
+}
+
+.header__content__wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;

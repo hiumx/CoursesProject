@@ -15,18 +15,25 @@
     </head>
     <body>
         <header class="header__wrapper">
-            <div class="header__nav__logo">
-                <i class="fa-solid fa-bars header__bars__icon"></i>
-                <img class="header__logo" src="images/logo-1.png" alt="logo-img"/>
-            </div>
-            <div class="header__search__wrapper">
-                <i class="fa-solid fa-magnifying-glass header__search_icon"></i>
-                <input class="header__search" type="text" name="search-course" placeholder="Tìm kiếm khóa học..." />
-            </div>
-            <div class="header__profile">
-                <p class="header__profile__courses">Khóa học của tôi</p>
-                <i class="fa-solid fa-user header__profile__icon"></i>
+            <%@include file="navigation.jsp" %>
+            <div class="header__content__wrapper">
+                <div class="header__nav__logo">
+                    <i class="fa-solid fa-bars header__bars__icon"></i>
+                    <a href="/courses/home.jsp" class="header__logo__wrapper">
+                        <img class="header__logo" src="images/logo-1.png" alt="logo-img"/>
+                    </a>
+                </div>
+                <div class="header__search__wrapper">
+                    <i class="fa-solid fa-magnifying-glass header__search_icon"></i>
+                    <input class="header__search" type="text" name="search-course" placeholder="Tìm kiếm khóa học..." />
+                </div>
+                <div class="header__profile">
+                    <p class="header__profile__courses">Khóa học của tôi</p>
+                    <i class="fa-solid fa-user header__profile__icon"></i>
+                </div>
             </div>
         </header>
+
+        <script src="js/header.js"></script>
     </body>
 </html>

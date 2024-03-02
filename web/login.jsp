@@ -56,7 +56,7 @@
                 </div>
                 <div class="login__register">
                     <p class="login__register__question">Do not have account?</p>
-                    <a href="http://localhost:6969/courses/register.jsp" class="login__register__link">Register</a>
+                    <a href="/courses/register.jsp" class="login__register__link">Register</a>
                 </div>
             </div>
         </div>

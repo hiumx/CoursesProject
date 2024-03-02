@@ -68,7 +68,7 @@
                 </div>
                 <div class="register__register">
                     <p class="register__register__question">Already have an account?</p>
-                    <a href="http://localhost:6969/courses/login.jsp" class="register__register__link">Login</a>
+                    <a href="/courses/login.jsp" class="register__register__link">Login</a>
                 </div>
             </div>
         </div>
