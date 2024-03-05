@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -18,86 +19,19 @@
         <div class="courses__wrapper container">
             <h3 class="courses__title">Khóa học miễn phí</h3>
             <ul class="courses__list row">
-                <li class="courses__item col-lg-3 col-md-4">
+                <c:forEach items="${requestScope.listCourses}" var="i">
+                    <li class="courses__item col-lg-3 col-md-4">
                     <a href="#" class="courses__item__link">
-                        <img src="images/courses/kien-thuc-nen-tang.png" class="courses__item__img" alt="course-img"/>
-                        <p class="courses__item__title">Kiến thức nhập môn IT</p>
+                        <img src="${i.image}" class="courses__item__img" alt="course-img"/>
+                        <p class="courses__item__title">${i.title}</p>
                         <div class="courses__item__icon__wrapper">
                             <i class="fa-solid fa-users courses__item__icon"></i>
-                            <span class="courses__item__joined__user">999.999</span>
+                            <span class="courses__item__joined__user">${i.joinedNumber}</span>
                         </div>
                     </a>
                 </li>
-                <li class="courses__item col-lg-3 col-md-4">
-                    <a href="#" class="courses__item__link">
-                        <img src="images/courses/kien-thuc-nen-tang.png" class="courses__item__img" alt="course-img"/>
-                        <p class="courses__item__title">Kiến thức nhập môn IT</p>
-                        <div class="courses__item__icon__wrapper">
-                            <i class="fa-solid fa-users courses__item__icon"></i>
-                            <span class="courses__item__joined__user">999.999</span>
-                        </div>
-                    </a>
-                </li>
-                <li class="courses__item col-lg-3 col-md-4">
-                    <a href="#" class="courses__item__link">
-                        <img src="images/courses/kien-thuc-nen-tang.png" class="courses__item__img" alt="course-img"/>
-                        <p class="courses__item__title">Kiến thức nhập môn IT</p>
-                        <div class="courses__item__icon__wrapper">
-                            <i class="fa-solid fa-users courses__item__icon"></i>
-                            <span class="courses__item__joined__user">999.999</span>
-                        </div>
-                    </a>
-                </li>
-                <li class="courses__item col-lg-3 col-md-4">
-                    <a href="#" class="courses__item__link">
-                        <img src="images/courses/kien-thuc-nen-tang.png" class="courses__item__img" alt="course-img"/>
-                        <p class="courses__item__title">Kiến thức nhập môn IT</p>
-                        <div class="courses__item__icon__wrapper">
-                            <i class="fa-solid fa-users courses__item__icon"></i>
-                            <span class="courses__item__joined__user">999.999</span>
-                        </div>
-                    </a>
-                </li>
-                <li class="courses__item col-lg-3 col-md-4">
-                    <a href="#" class="courses__item__link">
-                        <img src="images/courses/kien-thuc-nen-tang.png" class="courses__item__img" alt="course-img"/>
-                        <p class="courses__item__title">Kiến thức nhập môn IT</p>
-                        <div class="courses__item__icon__wrapper">
-                            <i class="fa-solid fa-users courses__item__icon"></i>
-                            <span class="courses__item__joined__user">999.999</span>
-                        </div>
-                    </a>
-                </li>
-                <li class="courses__item col-lg-3 col-md-4">
-                    <a href="#" class="courses__item__link">
-                        <img src="images/courses/kien-thuc-nen-tang.png" class="courses__item__img" alt="course-img"/>
-                        <p class="courses__item__title">Kiến thức nhập môn IT</p>
-                        <div class="courses__item__icon__wrapper">
-                            <i class="fa-solid fa-users courses__item__icon"></i>
-                            <span class="courses__item__joined__user">999.999</span>
-                        </div>
-                    </a>
-                </li>
-                <li class="courses__item col-lg-3 col-md-4">
-                    <a href="#" class="courses__item__link">
-                        <img src="images/courses/kien-thuc-nen-tang.png" class="courses__item__img" alt="course-img"/>
-                        <p class="courses__item__title">Kiến thức nhập môn IT</p>
-                        <div class="courses__item__icon__wrapper">
-                            <i class="fa-solid fa-users courses__item__icon"></i>
-                            <span class="courses__item__joined__user">999.999</span>
-                        </div>
-                    </a>
-                </li>
-                <li class="courses__item col-lg-3 col-md-4">
-                    <a href="#" class="courses__item__link">
-                        <img src="images/courses/kien-thuc-nen-tang.png" class="courses__item__img" alt="course-img"/>
-                        <p class="courses__item__title">Kiến thức nhập môn IT</p>
-                        <div class="courses__item__icon__wrapper">
-                            <i class="fa-solid fa-users courses__item__icon"></i>
-                            <span class="courses__item__joined__user">999.999</span>
-                        </div>
-                    </a>
-                </li>
+                </c:forEach>
+                
             </ul>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

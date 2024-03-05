@@ -81,3 +81,73 @@
     cursor: pointer;
     padding: 4px;
 }
+
+.header__profile__wrapper {
+    position: relative;
+
+}
+
+.header__profile__detail {
+    position: absolute;
+    top: 43px;
+    right: 0px;
+    background-color: #fff;
+    padding: 24px 24px 0 24px;
+    border-radius: 12px;
+    box-shadow: 0 -4px 32px rgba(0,0,0,.2);
+    display: none;
+}
+
+.header__profile__ava__name {
+    display: flex;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.header__profile__avatar {
+    width: 50px;
+    border-radius: 50%;
+    margin-right: 12px;
+}
+
+.header__profile__name {
+    min-width: 146px;
+}
+
+.header__profile__name h5 {
+    font-size: 15px;
+    font-weight: bold;
+    margin: 4px;
+}
+
+.header__profile__name p {
+    font-size: 14px;
+    color: #666;
+}
+
+.header__profile__list {
+    list-style: none;
+    padding: 0;
+}
+
+.header__profile__item {
+    padding: 16px 0;
+    border-top: 1px solid rgba(0, 0, 0, .05);
+}
+
+.header__profile__item__link {
+    text-decoration: none;
+    display: block;
+    color: #666;
+    font-size: 14px;
+}
+
+.header__profile__item__link:hover {
+    color: #292929;
+}
+
+
+.header__profile__avatar {
+    width: 50px;
+    border-radius: 50%;
+}

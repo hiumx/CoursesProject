@@ -19,7 +19,7 @@
             <div class="header__content__wrapper">
                 <div class="header__nav__logo">
                     <i class="fa-solid fa-bars header__bars__icon"></i>
-                    <a href="/courses/home.jsp" class="header__logo__wrapper">
+                    <a href="/courses/home" class="header__logo__wrapper">
                         <img class="header__logo" src="images/logo-1.png" alt="logo-img"/>
                     </a>
                 </div>
@@ -29,7 +29,34 @@
                 </div>
                 <div class="header__profile">
                     <p class="header__profile__courses">Khóa học của tôi</p>
-                    <i class="fa-solid fa-user header__profile__icon"></i>
+                    <div class="header__profile__wrapper">
+                        <i class="fa-solid fa-user header__profile__icon"></i>
+                        <div class="header__profile__detail">
+                            <div class="header__profile__ava__name">
+                                <img class="header__profile__avatar" src="./images/avatar/avatar-1.jpg" alt="avarta"/>
+                                <div class="header__profile__name">
+                                    <h5>Cong Thanh Truong</h5>
+                                    <p>@congthanhtruong2</p>
+                                </div>
+                            </div>
+                            <ul class="header__profile__list">
+                                <li class="header__profile__item">
+                                    <a class="header__profile__item__link" href="#">Trang cá nhân</a>
+                                </li>
+                                <li class="header__profile__item">
+                                    <a class="header__profile__item__link" href="#">Viết blog</a>
+                                    <a class="header__profile__item__link" href="#">Bài viết của tôi</a>
+                                </li>
+                                <li class="header__profile__item">
+                                    <a class="header__profile__item__link" href="#">Bài viết đã lưu</a>
+                                </li>
+                                <li class="header__profile__item">
+                                    <a class="header__profile__item__link" href="#">Cài đặt</a>
+                                    <a class="header__profile__item__link" href="#">Đăng xuất</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </header>
