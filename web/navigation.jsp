@@ -26,6 +26,9 @@
                     <a class="header__nav__item--link" href="#">Khóa học</a>
                 </li>
                 <li class="header__nav__item">
+                    <a class="header__nav__item--link" href="#">Bài viết</a>
+                </li>
+                <li class="header__nav__item">
                     <a class="header__nav__item--link" href="#">Về chúng tôi</a>
                 </li>
                 <li class="header__nav__item">
@@ -44,6 +47,7 @@
                 </a> 
             </div>
         </nav>
+        <div id="over"></div>
         
         </<script src="js/navigation.js"></script>
     </body>

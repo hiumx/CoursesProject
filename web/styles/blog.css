@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+p {
+    margin: 0;
+}
+
+.blog__wrapper {
+    padding: 40px 0;
+}
+
+.blog__title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: -14px;
+}
+
+.blog__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.blog__item {
+    margin-top: 30px;
+}
+
+.blog__item__link {
+    display: block;
+    text-decoration: none;
+    color: #333;
+}
+
+.blog__item__img {
+    width: 100%;
+    border-radius: 16px;
+}
+
+.blog__item__title {
+    color: #333;
+    margin-top: 4px;
+    
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.blog__item__user {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.blog__user__img {
+    width: 20px;
+    border-radius: 50%;
+}
+
+.blog__user__name,
+.blog__user__time__read {
+    margin: 0 10px;
+}
+
+.blog__user__doc {
+    transform: translateY(-3px);
+}

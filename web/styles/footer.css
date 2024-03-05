@@ -87,9 +87,10 @@
 
 .footer__item__title {
     color: #fff;
-    font-weight: 400;
+    font-weight: 500;
     text-transform: uppercase;
     margin-bottom: 20px;
+    font-size: 19px;
 }
 
 .footer__copyright__social {

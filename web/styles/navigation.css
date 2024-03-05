@@ -2,16 +2,19 @@
 .header__nav {
     width: 16%;
     height: 100vh;
-    position: absolute;
+    position: absolute; 
     top: 0;
     left: 0;
     background-color: #fff;
     transform: translateX(-100%);
-    transition: transform 0.3s ease;
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .header__nav__list {
     list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .header__nav__item {
@@ -77,4 +80,24 @@
 
 .nav__social__tiktok__icon {
     color: #000;
+}
+
+.overlay {
+    position: fixed;
+    left: 16%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    cursor: pointer;
+    overflow: hidden;
+    animation: fadeIn 0.3s linear forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        background-color: rgba(0, 0, 0, 0);
+    } to {
+        background-color: rgba(0, 0, 0, 0.3);
+    }
 }

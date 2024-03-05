@@ -13,8 +13,16 @@
         <title>Home</title>
     </head>
     <body>
-        <%@include file="header.jsp" %>
+
+        <div class="home__wrapper">
+            <%@include file="header.jsp" %>
+
+            <%@include file="courses.jsp" %>
+
+            <%@include file="blog.jsp" %>
+
+            <%@include file="footer.jsp" %>
+        </div>
         
-        <%@include file="footer.jsp" %>
     </body>
 </html>
