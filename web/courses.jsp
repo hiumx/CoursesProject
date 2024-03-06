@@ -21,7 +21,7 @@
             <ul class="courses__list row">
                 <c:forEach items="${requestScope.listCourses}" var="i">
                     <li class="courses__item col-lg-3 col-md-4">
-                    <a href="#" class="courses__item__link">
+                    <a href="/courses?id=${i.id}" class="courses__item__link">
                         <img src="${i.image}" class="courses__item__img" alt="course-img"/>
                         <p class="courses__item__title">${i.title}</p>
                         <div class="courses__item__icon__wrapper">

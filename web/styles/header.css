@@ -34,8 +34,9 @@
 
 .header__bars__icon,
 .header__profile__icon,
-.header__search_icon {
-    color: var(--text-color);
+.header__search_icon,
+.header__profile__bell__icon{
+    color: #666;
     cursor: pointer;
 }
 
@@ -76,10 +77,15 @@
 }
 
 .header__profile__courses {
-    margin-right: 10px;
     color: var(--text-color);
     cursor: pointer;
     padding: 4px;
+    margin-bottom: 0 !important;
+}
+
+.header__profile__bell__icon {
+    font-size: 18px;
+    margin: 0 14px 0 24px;
 }
 
 .header__profile__wrapper {

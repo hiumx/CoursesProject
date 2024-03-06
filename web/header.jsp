@@ -19,7 +19,7 @@
             <div class="header__content__wrapper">
                 <div class="header__nav__logo">
                     <i class="fa-solid fa-bars header__bars__icon"></i>
-                    <a href="/courses/home" class="header__logo__wrapper">
+                    <a href="/home" class="header__logo__wrapper">
                         <img class="header__logo" src="images/logo-1.png" alt="logo-img"/>
                     </a>
                 </div>
@@ -29,6 +29,9 @@
                 </div>
                 <div class="header__profile">
                     <p class="header__profile__courses">Khóa học của tôi</p>
+                    <div>
+                        <i class="fa-solid fa-bell header__profile__bell__icon"></i>
+                    </div>
                     <div class="header__profile__wrapper">
                         <i class="fa-solid fa-user header__profile__icon"></i>
                         <div class="header__profile__detail">
