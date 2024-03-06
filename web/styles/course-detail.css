@@ -72,7 +72,9 @@
 
 .course__detail__show__more {
     color: #f05123;
-    font-weight: 600;
+    font-weight: 500;
+    cursor: pointer;
+    margin-bottom: 0;
 }
 
 .course__detail__doc {

@@ -61,11 +61,11 @@
 
                         <ul class="course__detail__list__content">
                             <c:set var="i" value="0" />
-                            <c:forEach items="${requestScope.listContents}" var="t">
+                            <c:forEach items="${requestScope.listContents}" var="t" varStatus="loop">
                                 <li class="course__detail__item__content">
                                     <div>
                                         <i class="fa-solid fa-plus course__detail__plus__icon"></i>
-                                        <span class="course__detail__name__session">${(i+1)}.${t}</span>
+                                        <span class="course__detail__name__session">${(loop.index+1)}.${t}</span>
                                     </div>
                                     <div>
                                         3 bài học
