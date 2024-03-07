@@ -19,8 +19,7 @@ public class User {
     public User() {
     }
 
-    public User(int id, String username, String password, String role, String image) {
-        this.id = id;
+    public User(String username, String password, String role, String image) {
         this.username = username;
         this.password = password;
         this.role = role;
@@ -69,6 +68,6 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" + "id=" + id + ", username=" + username + ", password=" + password + ", role=" + role + ", image=" + image + '}';
+        return "User{username=" + username + ", password=" + password + ", role=" + role + ", image=" + image + '}';
     }
 }

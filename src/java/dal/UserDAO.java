@@ -20,7 +20,7 @@ public class UserDAO extends DBContext {
             PreparedStatement st = connection.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
-                list.add(new User(rs.getInt("Id"),
+                list.add(new User(
                         rs.getString("Username"),
                         rs.getString("Password"),
                         rs.getString("Role"),
@@ -33,19 +33,36 @@ public class UserDAO extends DBContext {
         }
         return list;
     }
+    
+    public boolean isUserNameExist(String username) {
+        String sql = "SELECT username FROM [User] WHERE username = ?";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setString(1, username);
+            ResultSet rs = st.executeQuery();
+            if(rs.next()) {
+                return true;
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return false;
+    }
 
-//    public void insertAUser(User c) {
-//        String sql = "INSERT INTO Categories VALUES(?,?,?)";
-//        try {
-//            PreparedStatement st = connection.prepareStatement(sql);
-//            st.setInt(1, c.getId());
-//            st.setString(2, c.getName());
-//            st.setString(3, c.getDescribe());
-//            st.executeUpdate();
-//        } catch (SQLException e) {
-//            System.out.println(e);
-//        }
-//    }
+    public int createUser(User u) {
+        String sql = "INSERT INTO [User] VALUES(?,?,?,?)";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setString(1, u.getUsername());
+            st.setString(2, u.getPassword());
+            st.setString(3, u.getRole());
+            st.setString(4, u.getImage());
+            return st.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return 0;
+    }
 //
 //    public User getUserById(int id) {
 //        String sql = "SELECT * FROM Categories WHERE id = ?";

@@ -6,7 +6,7 @@ package model;
 
 
 public class Course {
-    private int id;
+//    private int id;
     private String title;
     private String image;
     private String description;
@@ -18,8 +18,7 @@ public class Course {
     public Course() {
     }
 
-    public Course(int id, String title, String image, String description, String content, String target, String level, String joinedNumber) {
-        this.id = id;
+    public Course( String title, String image, String description, String content, String target, String level, String joinedNumber) {
         this.title = title;
         this.image = image;
         this.description = description;
@@ -28,14 +27,14 @@ public class Course {
         this.level = level;
         this.joinedNumber = joinedNumber;
     }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
+//
+//    public int getId() {
+//        return id;
+//    }
+//
+//    public void setId(int id) {
+//        this.id = id;
+//    }
 
     public String getTitle() {
         return title;
@@ -95,10 +94,6 @@ public class Course {
 
     @Override
     public String toString() {
-        return "Course{" + "id=" + id + ", title=" + title + ", image=" + image + ", description=" + description + ", content=" + content + ", target=" + target + ", level=" + level + ", joinedNumber=" + joinedNumber + '}';
+        return "Course{title=" + title + ", image=" + image + ", description=" + description + ", content=" + content + ", target=" + target + ", level=" + level + ", joinedNumber=" + joinedNumber + '}';
     }
-
-    
-    
-    
 }

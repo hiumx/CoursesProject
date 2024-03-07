@@ -20,7 +20,7 @@ public class CourseDAO extends DBContext {
             PreparedStatement st = connection.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
-                list.add(new Course(rs.getInt("Id"),
+                list.add(new Course(
                         rs.getString("Title"),
                         rs.getString("Image"),
                         rs.getString("Description"),
@@ -46,7 +46,6 @@ public class CourseDAO extends DBContext {
             ResultSet rs = st.executeQuery();
             if(rs.next()) {
                 Course course = new Course(
-                        rs.getInt("Id"),
                         rs.getString("Title"),
                         rs.getString("Image"),
                         rs.getString("Description"),
