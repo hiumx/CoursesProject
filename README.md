@@ -10,4 +10,6 @@
 * Truong Cong Thanh
 * Kim Yen
 * Ho Ngoc Minh
+### Screenshots
+![detail-page-img](https://github.com/hiumx/CoursesProject/blob/main/images/course-detail-page.png)
 #### © 2024 mai.xuan.hieu
