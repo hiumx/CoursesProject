@@ -84,7 +84,7 @@
                         <ul class="course__detail__more__list">
                             <li class="course__detail__more__item">
                                 <i class="fa-solid fa-book"></i>
-                                <p class="course__detail__more__item__text">Trình độ cơ bản</p>
+                                <p class="course__detail__more__item__text">${c.level}</p>
                             </li>
                             <li class="course__detail__more__item">
                                 <i class="fa-solid fa-film"></i>

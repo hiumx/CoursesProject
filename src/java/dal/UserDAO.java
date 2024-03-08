@@ -21,6 +21,7 @@ public class UserDAO extends DBContext {
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
                 list.add(new User(
+                        rs.getInt("Id"),
                         rs.getString("Username"),
                         rs.getString("Password"),
                         rs.getString("Role"),
@@ -33,14 +34,14 @@ public class UserDAO extends DBContext {
         }
         return list;
     }
-    
+
     public boolean isUserNameExist(String username) {
         String sql = "SELECT username FROM [User] WHERE username = ?";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             st.setString(1, username);
             ResultSet rs = st.executeQuery();
-            if(rs.next()) {
+            if (rs.next()) {
                 return true;
             }
         } catch (SQLException e) {
@@ -49,14 +50,12 @@ public class UserDAO extends DBContext {
         return false;
     }
 
-    public int createUser(User u) {
-        String sql = "INSERT INTO [User] VALUES(?,?,?,?)";
+    public int createUser(String username, String password) {
+        String sql = "INSERT INTO [User] (Username, Password) VALUES(?,?)";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
-            st.setString(1, u.getUsername());
-            st.setString(2, u.getPassword());
-            st.setString(3, u.getRole());
-            st.setString(4, u.getImage());
+            st.setString(1, username);
+            st.setString(2, password);
             return st.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e);
@@ -64,22 +63,29 @@ public class UserDAO extends DBContext {
         return 0;
     }
 //
-//    public User getUserById(int id) {
-//        String sql = "SELECT * FROM Categories WHERE id = ?";
-//        try {
-//            PreparedStatement st = connection.prepareStatement(sql);
-//            st.setInt(1, id);
-//            ResultSet rs = st.executeQuery();
-//            if (rs.next()) {
-//                User c = new User(rs.getInt("id"), rs.getString("name"), rs.getString("describe"));
-//                return c;
-//            }
-//        } catch (SQLException e) {
-//            System.out.println(e);
-//        }
-//        return null;
-//    }
-//
+
+    public User getUserById(int id) {
+        String sql = "SELECT * FROM [User] WHERE Id = ?";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setInt(1, id);
+            ResultSet rs = st.executeQuery();
+            if (rs.next()) {
+                User c = new User(
+                        rs.getInt("Id"),
+                        rs.getString("Username"),
+                        rs.getString("Password"),
+                        rs.getString("Role"),
+                        rs.getString("Image")
+                );
+                return c;
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return null;
+    }
+
 //    public void deleteUserById(int id) {
 //        String sql = "DELETE FROM Categories WHERE id = ?";
 //        try {

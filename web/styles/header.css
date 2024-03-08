@@ -18,6 +18,10 @@
     align-items: center;
     padding: 16px 40px;
     border-bottom: 1px solid #e8ebed;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
 }
 
 .header__nav__logo {

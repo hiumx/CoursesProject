@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,35 +15,34 @@
     <body>
         <div class="container" style="margin-top: 80px">
             <h3 class="mb-3 text-center">Course Management</h3>
-            <button type="button" class="btn btn-primary add-new-user-btn">Add new course</button>
+            <button type="button" class="btn btn-primary add-new-course-btn">Add new course</button>
 
             <table class="table table-hover mt-3">
                 <thead>
                     <tr>
                         <th>#</th>
                         <th>Title</th>
-                        <th>Description</th>
                         <th>Level</th>
                         <th>Joined number</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <c:forEach var="co" items="${requestScope.listCourses}" varStatus="loop">
+                <c:forEach var="u" items="${requestScope.listCourses}" varStatus="loop">
                         <tr>
                             <td>${loop.index+1}</td>
-                            <td>${co.title}</td>
-                            <td>${co.description}</td>
-                            <td>${co.level}</td>
-                            <td>${co.joinedNumber}</td>
+                            <td>${u.title}</td>
+                            <td>${u.level}</td>
+                            <td>${u.joinedNumber}</td>
                             <td>
                                 <button class="btn btn-info">Update</button>
-                                <button class="btn btn-danger mt-3">Delete</button>
+                                <button class="btn btn-danger">Delete</button>
                             </td>
                         </tr>
                     </c:forEach>
                 </tbody>
             </table>
         </div>
+        <script src="../../../js/list-course.js"></script>
     </body>
 </html>

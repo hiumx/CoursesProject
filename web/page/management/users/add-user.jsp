@@ -12,7 +12,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <div class="container mt-3">
+        <div class="container mt-3" style="padding-top: 64px">
             <h2>Create new user</h2>
             <form action="/management/users/add-user" method="POST">
                 <div class="row">

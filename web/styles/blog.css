@@ -43,11 +43,12 @@ p {
 
 .blog__item__title {
     color: #333;
-    margin-top: 4px;
-    
+    margin-top: 10px;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    font-size: 14px;
+    font-weight: 500;
 }
 
 .blog__item__user {

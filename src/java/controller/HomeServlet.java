@@ -6,6 +6,7 @@ package controller;
  */
 
 
+import dal.BlogDAO;
 import dal.CourseDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -15,6 +16,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.util.List;
+import model.Blog;
 import model.Course;
 
 /**
@@ -60,8 +62,13 @@ public class HomeServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         CourseDAO courseDB = new CourseDAO();
-        List<Course> listCourses= courseDB.getAll();
+        BlogDAO blogDB = new BlogDAO();
+        
+        List<Course> listCourses = courseDB.getAll();
+        List<Blog> listBlogs = blogDB.getAll();
+        
         request.setAttribute("listCourses", listCourses);
+        request.setAttribute("listBlogs", listBlogs);
         request.getRequestDispatcher("home.jsp").forward(request, response);
     } 
 

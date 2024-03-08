@@ -15,43 +15,55 @@ public class CourseDAO extends DBContext {
 
     public List<Course> getAll() {
         List<Course> list = new ArrayList<>();
-        String sql = "SELECT * FROM [Course]";
+        String sql = "SELECT Course.Id AS Id, Course.Title AS Title, Course.Image AS Image, "
+                + "Course.Description AS Description, Course.Content AS Content, Course.Target AS Target, "
+                + "Level.Name AS LevelName, Course.Join_Number AS Join_Number "
+                + "FROM [Course] JOIN [Level] "
+                + "ON [Course].Level = [Level].Id";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
                 list.add(new Course(
+                        rs.getInt("Id"),
                         rs.getString("Title"),
                         rs.getString("Image"),
                         rs.getString("Description"),
                         rs.getString("Content"),
                         rs.getString("Target"),
-                        rs.getString("Level"),
+                        rs.getString("LevelName"),
                         rs.getString("Join_Number")
                 )
                 );
             }
+            return list;
+
         } catch (SQLException e) {
             System.out.println(e);
         }
-        return list;
+        return null;
     }
-    
+
     public Course getCourseDetail(int id) {
-        String sql = "SELECT * FROM [Course] WHERE id = ?";
-        
+        String sql = "SELECT Course.Id AS Id, Course.Title AS Title, Course.Image AS Image, "
+                + "Course.Description AS Description, Course.Content AS Content, Course.Target AS Target, "
+                + "Level.Name AS LevelName, Course.Join_Number AS Join_Number "
+                + "FROM [Course] JOIN [Level] "
+                + "ON [Course].Level = [Level].Id WHERE [Course].Id = ?";
+
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             st.setInt(1, id);
             ResultSet rs = st.executeQuery();
-            if(rs.next()) {
+            if (rs.next()) {
                 Course course = new Course(
+                        rs.getInt("Id"),
                         rs.getString("Title"),
                         rs.getString("Image"),
                         rs.getString("Description"),
                         rs.getString("Content"),
                         rs.getString("Target"),
-                        rs.getString("Level"),
+                        rs.getString("LevelName"),
                         rs.getString("Join_Number")
                 );
                 return course;
@@ -62,18 +74,23 @@ public class CourseDAO extends DBContext {
         return null;
     }
 
-//    public void insertACourse(Course c) {
-//        String sql = "INSERT INTO Categories VALUES(?,?,?)";
-//        try {
-//            PreparedStatement st = connection.prepareStatement(sql);
-//            st.setInt(1, c.getId());
-//            st.setString(2, c.getName());
-//            st.setString(3, c.getDescribe());
-//            st.executeUpdate();
-//        } catch (SQLException e) {
-//            System.out.println(e);
-//        }
-//    }
+    public int createCourse(String title, String image, String desc,
+            String content, String target, int level) {
+        String sql = "INSERT INTO [Course] VALUES(?,?,?,?,?,?,0)";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setString(1, title);
+            st.setString(2, image);
+            st.setString(3, desc);
+            st.setString(4, content);
+            st.setString(5, target);
+            st.setInt(6, level);
+            return st.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return 0;
+    }
 //
 //    public Course getCourseById(int id) {
 //        String sql = "SELECT * FROM Categories WHERE id = ?";
@@ -114,6 +131,7 @@ public class CourseDAO extends DBContext {
 //            System.out.println(e);
 //        }
 //    }
+
     public static void main(String[] args) {
         CourseDAO c = new CourseDAO();
         List<Course> result = c.getAll();

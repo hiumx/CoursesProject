@@ -10,31 +10,26 @@ package model;
  */
 
 
-//-- Create the Blog table
-//CREATE TABLE Blog (
-//    Id INT IDENTITY PRIMARY KEY,
-//    Image VARCHAR(MAX),
-//    Title NVARCHAR(100) NOT NULL,
-//    Content NVARCHAR(MAX),
-//    UserId INT FOREIGN KEY REFERENCES [User](Id)
-//);
-
 public class Blog {
     private int id;
     private String image;
     private String title;
     private String content;
-    private int userId;
+    private int like;
+    private int comment;
+    private User user;
 
     public Blog() {
     }
 
-    public Blog(int id, String image, String title, String content, int userId) {
+    public Blog(int id, String image, String title, String content, int like, int comment, User user) {
         this.id = id;
         this.image = image;
         this.title = title;
         this.content = content;
-        this.userId = userId;
+        this.like = like;
+        this.comment = comment;
+        this.user = user;
     }
 
     public int getId() {
@@ -69,18 +64,33 @@ public class Blog {
         this.content = content;
     }
 
-    public int getUserId() {
-        return userId;
+    public int getLike() {
+        return like;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setLike(int like) {
+        this.like = like;
+    }
+
+    public int getComment() {
+        return comment;
+    }
+
+    public void setComment(int comment) {
+        this.comment = comment;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @Override
     public String toString() {
-        return "Blog{" + "id=" + id + ", image=" + image + ", title=" + title + ", content=" + content + ", userId=" + userId + '}';
+        return "Blog{" + "id=" + id + ", image=" + image + ", title=" + title + ", content=" + content + ", like=" + like + ", comment=" + comment +  "user" + user +  '}';
     }
-    
     
 }

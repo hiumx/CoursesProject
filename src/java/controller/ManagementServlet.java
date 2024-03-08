@@ -4,6 +4,7 @@
  */
 package controller;
 
+import dal.BlogDAO;
 import dal.CourseDAO;
 import dal.UserDAO;
 import java.io.IOException;
@@ -14,6 +15,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.util.List;
+import model.Blog;
 import model.Course;
 import model.User;
 
@@ -79,6 +81,13 @@ public class ManagementServlet extends HttpServlet {
                 CourseDAO cdb = new CourseDAO();
                 List<Course> listCourses = cdb.getAll();
                 request.setAttribute("listCourses", listCourses);
+                request.setAttribute("type", type);
+                request.getRequestDispatcher("/page/management/management.jsp").forward(request, response);
+                break;
+             case "blog":
+                 BlogDAO bdb = new BlogDAO();
+                List<Blog> listBlogs = bdb.getAll();
+                request.setAttribute("listBlogs", listBlogs);
                 request.setAttribute("type", type);
                 request.getRequestDispatcher("/page/management/management.jsp").forward(request, response);
                 break;

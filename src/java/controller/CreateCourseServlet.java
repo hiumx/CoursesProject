@@ -4,7 +4,7 @@
  */
 package controller;
 
-import dal.UserDAO;
+import dal.CourseDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -12,14 +12,13 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import model.User;
 
 /**
  *
  * @author Admin
  */
-@WebServlet(name = "AddUserServlet", urlPatterns = {"/management/users/add-user"})
-public class CreateUserServlet extends HttpServlet {
+@WebServlet(name = "CreateCourseServlet", urlPatterns = {"/management/courses/add-course"})
+public class CreateCourseServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,10 +37,10 @@ public class CreateUserServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet AddUserServlet</title>");
+            out.println("<title>Servlet CreateCourseServlet</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet AddUserServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet CreateCourseServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -59,7 +58,7 @@ public class CreateUserServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.setAttribute("type", "addUser");
+        request.setAttribute("type", "addCourse");
         request.getRequestDispatcher("/page/management/management.jsp").forward(request, response);
     }
 
@@ -74,34 +73,47 @@ public class CreateUserServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
+        String title = request.getParameter("title");
+        String description = request.getParameter("description");
+        String levelRaw = request.getParameter("level");
+        String content = request.getParameter("content");
+        String target = request.getParameter("target");
+        String image = request.getParameter("image");
 
-        String pattern = "^.*(?=.{8,})(?=..*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).*$";
-        UserDAO udb = new UserDAO();
+        image = "./images/courses/" + image;
 
-        boolean isUsernameExist = udb.isUserNameExist(username);
-
-        if (isUsernameExist) {
-            request.setAttribute("error", "User name already existed! Please try anothers.");
-            request.setAttribute("type", "addUser");
-            request.setAttribute("username", username);
-            request.setAttribute("password", password);
-            request.getRequestDispatcher("/page/management/management.jsp").forward(request, response);
-        } else if (!password.matches(pattern)) {
-            request.setAttribute("error", "Password must be at least 8 characters, one lower char,"
-                    + " one upper char and one special char");
-            request.setAttribute("type", "addUser");
-            request.setAttribute("username", username);
-            request.setAttribute("password", password);
-            request.getRequestDispatcher("/page/management/management.jsp").forward(request, response);
-        } else {
-            int rowEffected = udb.createUser(username, password);
-            if (rowEffected > 0) {
-                response.sendRedirect("/management");
+        if (!title.equalsIgnoreCase("") && !description.equalsIgnoreCase("") && !content.equalsIgnoreCase("")
+                && !image.equalsIgnoreCase("") && title != null && description != null
+                && content != null && image != null) {
+            try {
+                int level = Integer.parseInt(levelRaw);
+                CourseDAO cdb = new CourseDAO();
+                int rowEffected = cdb.createCourse(title, image, description, content, target, level);
+                if (rowEffected > 0) {
+                    response.sendRedirect("/management");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println(e);
             }
+        } else {
+            request.setAttribute("error", "Please fill all fields!");
+            request.setAttribute("type", "addCourse");
+            request.setAttribute("title", title);
+            request.setAttribute("description", description);
+            request.setAttribute("content", content);
+            request.setAttribute("target", target);
+            System.out.println("LEVEL:" + levelRaw);
+            request.setAttribute("level", levelRaw);
+            request.setAttribute("image", image);
+            request.getRequestDispatcher("/page/management/management.jsp").forward(request, response);
+            
         }
+        request.setAttribute("type", "course");
+        request.getRequestDispatcher("/page/management/management.jsp").forward(request, response);
+    }
 
+    //store image to directory
+    public void storeImage() {
     }
 
     /**

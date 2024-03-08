@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -18,102 +19,20 @@
         <div class="blog__wrapper container">
             <h3 class="blog__title">Bài viết nổi bật</h3>
             <ul class="blog__list row">
-                <li class="blog__item col-lg-3 col-md-4">
-                    <a href="#" class="blog__item__link">
-                        <img src="images/blogs/blog-img-1.png" class="blog__item__img" alt="blog-img"/>
-                        <p class="blog__item__title">Tổng hợp các sản phẩm của học viên tại Kafka</p>
-                        <div class="blog__item__user">
-                            <img class="blog__user__img" src="images/avatar/avatar-1.jpg" alt="avatar-img"/>
-                            <span class="blog__user__name">Xuân Hiếu</span>
-                            <span class="blog__user__doc">.</span>
-                            <span class="blog__user__time__read">14 phút đọc</span>
-                        </div>
-                    </a>
-                </li>
-                <li class="blog__item col-lg-3 col-md-4">
-                    <a href="#" class="blog__item__link">
-                        <img src="images/blogs/blog-img-1.png" class="blog__item__img" alt="blog-img"/>
-                        <p class="blog__item__title">Tổng hợp các sản phẩm của học viên tại Kafka</p>
-                        <div class="blog__item__user">
-                            <img class="blog__user__img" src="images/avatar/avatar-1.jpg" alt="avatar-img"/>
-                            <span class="blog__user__name">Xuân Hiếu</span>
-                            <span class="blog__user__doc">.</span>
-                            <span class="blog__user__time__read">14 phút đọc</span>
-                        </div>
-                    </a>
-                </li>
-                <li class="blog__item col-lg-3 col-md-4">
-                    <a href="#" class="blog__item__link">
-                        <img src="images/blogs/blog-img-1.png" class="blog__item__img" alt="blog-img"/>
-                        <p class="blog__item__title">Tổng hợp các sản phẩm của học viên tại Kafka</p>
-                        <div class="blog__item__user">
-                            <img class="blog__user__img" src="images/avatar/avatar-1.jpg" alt="avatar-img"/>
-                            <span class="blog__user__name">Xuân Hiếu</span>
-                            <span class="blog__user__doc">.</span>
-                            <span class="blog__user__time__read">14 phút đọc</span>
-                        </div>
-                    </a>
-                </li>
-                <li class="blog__item col-lg-3 col-md-4">
-                    <a href="#" class="blog__item__link">
-                        <img src="images/blogs/blog-img-1.png" class="blog__item__img" alt="blog-img"/>
-                        <p class="blog__item__title">Tổng hợp các sản phẩm của học viên tại Kafka</p>
-                        <div class="blog__item__user">
-                            <img class="blog__user__img" src="images/avatar/avatar-1.jpg" alt="avatar-img"/>
-                            <span class="blog__user__name">Xuân Hiếu</span>
-                            <span class="blog__user__doc">.</span>
-                            <span class="blog__user__time__read">14 phút đọc</span>
-                        </div>
-                    </a>
-                </li>
-                <li class="blog__item col-lg-3 col-md-4">
-                    <a href="#" class="blog__item__link">
-                        <img src="images/blogs/blog-img-1.png" class="blog__item__img" alt="blog-img"/>
-                        <p class="blog__item__title">Tổng hợp các sản phẩm của học viên tại Kafka</p>
-                        <div class="blog__item__user">
-                            <img class="blog__user__img" src="images/avatar/avatar-1.jpg" alt="avatar-img"/>
-                            <span class="blog__user__name">Xuân Hiếu</span>
-                            <span class="blog__user__doc">.</span>
-                            <span class="blog__user__time__read">14 phút đọc</span>
-                        </div>
-                    </a>
-                </li>
-                <li class="blog__item col-lg-3 col-md-4">
-                    <a href="#" class="blog__item__link">
-                        <img src="images/blogs/blog-img-1.png" class="blog__item__img" alt="blog-img"/>
-                        <p class="blog__item__title">Tổng hợp các sản phẩm của học viên tại Kafka</p>
-                        <div class="blog__item__user">
-                            <img class="blog__user__img" src="images/avatar/avatar-1.jpg" alt="avatar-img"/>
-                            <span class="blog__user__name">Xuân Hiếu</span>
-                            <span class="blog__user__doc">.</span>
-                            <span class="blog__user__time__read">14 phút đọc</span>
-                        </div>
-                    </a>
-                </li>
-                <li class="blog__item col-lg-3 col-md-4">
-                    <a href="#" class="blog__item__link">
-                        <img src="images/blogs/blog-img-1.png" class="blog__item__img" alt="blog-img"/>
-                        <p class="blog__item__title">Tổng hợp các sản phẩm của học viên tại Kafka</p>
-                        <div class="blog__item__user">
-                            <img class="blog__user__img" src="images/avatar/avatar-1.jpg" alt="avatar-img"/>
-                            <span class="blog__user__name">Xuân Hiếu</span>
-                            <span class="blog__user__doc">.</span>
-                            <span class="blog__user__time__read">14 phút đọc</span>
-                        </div>
-                    </a>
-                </li>
-                <li class="blog__item col-lg-3 col-md-4">
-                    <a href="#" class="blog__item__link">
-                        <img src="images/blogs/blog-img-1.png" class="blog__item__img" alt="blog-img"/>
-                        <p class="blog__item__title">Tổng hợp các sản phẩm của học viên tại Kafka</p>
-                        <div class="blog__item__user">
-                            <img class="blog__user__img" src="images/avatar/avatar-1.jpg" alt="avatar-img"/>
-                            <span class="blog__user__name">Xuân Hiếu</span>
-                            <span class="blog__user__doc">.</span>
-                            <span class="blog__user__time__read">14 phút đọc</span>
-                        </div>
-                    </a>
-                </li>
+                <c:forEach items="${requestScope.listBlogs}" var="b">
+                    <li class="blog__item col-lg-3 col-md-4">
+                        <a href="#" class="blog__item__link">
+                            <img src="images/blogs/blog-img-1.png" class="blog__item__img" alt="blog-img"/>
+                            <p class="blog__item__title">${b.title}</p>
+                            <div class="blog__item__user">
+                                <img class="blog__user__img" src="images/avatar/avatar-1.jpg" alt="avatar-img"/>
+                                <span class="blog__user__name">${b.user.getUsername()}</span>
+                                <span class="blog__user__doc">.</span>
+                                <span class="blog__user__time__read">14 phút đọc</span>
+                            </div>
+                        </a>
+                    </li>
+                </c:forEach>
             </ul>
         </div>
     </body>
