@@ -6,7 +6,6 @@
 package controller;
 
 import dal.BlogDAO;
-import dal.UserDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -14,15 +13,14 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.util.List;
-import model.User;
+import model.Blog;
 
 /**
  *
  * @author Admin
  */
-@WebServlet(name="CreateBlogServlet", urlPatterns={"/management/blogs/add-blog"})
-public class CreateBlogServlet extends HttpServlet {
+@WebServlet(name="BlogServlet", urlPatterns={"/blogs"})
+public class BlogServlet extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -39,10 +37,10 @@ public class CreateBlogServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet CreateBlogServlet</title>");  
+            out.println("<title>Servlet BlogServlet</title>");  
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet CreateBlogServlet at " + request.getContextPath () + "</h1>");
+            out.println("<h1>Servlet BlogServlet at " + request.getContextPath () + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -59,11 +57,21 @@ public class CreateBlogServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        request.setAttribute("type", "addBlog");
-        UserDAO udb = new UserDAO();
-        List<User> listUsers = udb.getAll();
-        request.setAttribute("listUsers", listUsers);
-        request.getRequestDispatcher("/page/management/management.jsp").forward(request, response);
+        String idBlogRaw = request.getParameter("id");
+        try {
+            int idBlog = Integer.parseInt(idBlogRaw);
+            BlogDAO bdb = new BlogDAO();
+
+            Blog blog = bdb.getBlogById(idBlog);
+            
+            System.out.println("BLOG RES: " + blog);
+
+            request.setAttribute("blog", blog);
+            request.getRequestDispatcher("/page/home/blog-detail.jsp").forward(request, response);
+
+        } catch (NumberFormatException e) {
+            System.out.println(e);
+        }
     } 
 
     /** 
@@ -76,37 +84,7 @@ public class CreateBlogServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        String title = request.getParameter("title");
-        String userIdRaw = request.getParameter("user-select");
-        String content = request.getParameter("content");
-        String image = request.getParameter("image");
-        
-        image = "./images/blogs/" + image;
-        
-        if (!title.equalsIgnoreCase("") && !content.equalsIgnoreCase("") 
-                && !image.equalsIgnoreCase("") && title != null 
-                && content != null && image != null) {
-            try {
-                int userId = Integer.parseInt(userIdRaw);
-                BlogDAO bdb = new BlogDAO();
-                int rowEffected = bdb.createBlog(title, image, content, userId);
-                if (rowEffected > 0) {
-                    response.sendRedirect("/management");
-                }
-            } catch (NumberFormatException e) {
-                System.out.println(e);
-            }
-             
-        } else {
-            request.setAttribute("error", "Please fill all fields!");
-            request.setAttribute("type", "addBlog");
-            request.setAttribute("title", title);
-            request.setAttribute("content", content);
-            request.setAttribute("image", image);
-            request.getRequestDispatcher("/page/management/management.jsp").forward(request, response);
-            
-        } 
-       
+        processRequest(request, response);
     }
 
     /** 

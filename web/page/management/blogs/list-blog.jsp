@@ -24,8 +24,8 @@
                         <th>Title</th>
                         <th>Image</th>
                         <th>Like</th>
-                        <th>Comment</th>
                         <th>Username</th>
+                        <th>Status</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -36,8 +36,8 @@
                             <td>${b.title}</td>
                             <td>${b.image}</td>
                             <td>${b.like}</td>
-                            <td>${b.comment}</td>
                             <td>${b.user.getUsername()}</td>
+                            <td>${b.status}</td>
                             <td>
                                 <button class="btn btn-info">Update</button>
                                 <button class="btn btn-danger">Delete</button>

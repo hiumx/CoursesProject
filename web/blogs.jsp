@@ -21,12 +21,12 @@
             <ul class="blog__list row">
                 <c:forEach items="${requestScope.listBlogs}" var="b">
                     <li class="blog__item col-lg-3 col-md-4">
-                        <a href="#" class="blog__item__link">
+                        <a href="/blogs?id=${b.id}" class="blog__item__link">
                             <img src="images/blogs/blog-img-1.png" class="blog__item__img" alt="blog-img"/>
                             <p class="blog__item__title">${b.title}</p>
                             <div class="blog__item__user">
-                                <img class="blog__user__img" src="images/avatar/avatar-1.jpg" alt="avatar-img"/>
-                                <span class="blog__user__name">${b.user.getUsername()}</span>
+                                <img class="blog__user__img" src="${b.user.image}" alt="avatar-img"/>
+                                <span class="blog__user__name">${b.user.username}</span>
                                 <span class="blog__user__doc">.</span>
                                 <span class="blog__user__time__read">14 phút đọc</span>
                             </div>

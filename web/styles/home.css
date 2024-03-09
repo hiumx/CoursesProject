@@ -7,3 +7,7 @@
     box-sizing: border-box;
     font-family: "Roboto", sans-serif;
 }
+
+.home__content {
+    margin-top: 66px;
+}

@@ -70,6 +70,8 @@ public class ManagementServlet extends HttpServlet {
             type = typeRaw;
         }
         
+        System.out.println("TYPEEE:" + type);
+
         switch (type) {
             case "user":
                 UserDAO udb = new UserDAO();
@@ -84,9 +86,10 @@ public class ManagementServlet extends HttpServlet {
                 request.setAttribute("type", type);
                 request.getRequestDispatcher("/page/management/management.jsp").forward(request, response);
                 break;
-             case "blog":
-                 BlogDAO bdb = new BlogDAO();
+            case "blog":
+                BlogDAO bdb = new BlogDAO();
                 List<Blog> listBlogs = bdb.getAll();
+                System.out.println("LIST BLOGGG:" + listBlogs);
                 request.setAttribute("listBlogs", listBlogs);
                 request.setAttribute("type", type);
                 request.getRequestDispatcher("/page/management/management.jsp").forward(request, response);
@@ -94,22 +97,21 @@ public class ManagementServlet extends HttpServlet {
             default:
                 throw new AssertionError();
         }
-        
-        
+
         request.setAttribute("type", type);
         request.getRequestDispatcher("page/management/management.jsp").forward(request, response);
     }
 
-/**
- * Handles the HTTP <code>POST</code> method.
- *
- * @param request servlet request
- * @param response servlet response
- * @throws ServletException if a servlet-specific error occurs
- * @throws IOException if an I/O error occurs
- */
-@Override
-protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    /**
+     * Handles the HTTP <code>POST</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
@@ -120,7 +122,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response)
      * @return a String containing servlet description
      */
     @Override
-public String getServletInfo() {
+    public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
 

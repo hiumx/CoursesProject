@@ -3,11 +3,23 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/H:/fpt/PRJ/CoursesProject/src/java/controller/CourseServlet.java</file>
+            <file>file:/H:/fpt/PRJ/CoursesProject/web/styles/login.css</file>
+            <file>file:/H:/fpt/PRJ/CoursesProject/web/page/management/users/add-user.jsp</file>
+            <file>file:/H:/fpt/PRJ/CoursesProject/src/java/dal/BlogDAO.java</file>
+            <file>file:/H:/fpt/PRJ/CoursesProject/web/page/management/management.jsp</file>
+            <file>file:/H:/fpt/PRJ/CoursesProject/web/page/management/courses/add-course.jsp</file>
+            <file>file:/H:/fpt/PRJ/CoursesProject/web/page/management/users/list-user.jsp</file>
+            <file>file:/H:/fpt/PRJ/CoursesProject/src/java/model/User.java</file>
+            <file>file:/H:/fpt/PRJ/CoursesProject/src/java/controller/CreateBlogServlet.java</file>
+            <file>file:/H:/fpt/PRJ/CoursesProject/src/java/controller/HomeServlet.java</file>
             <file>file:/H:/fpt/PRJ/CoursesProject/src/java/controller/CreateUserServlet.java</file>
-            <file>file:/H:/fpt/PRJ/CoursesProject/src/java/dal/CourseDAO.java</file>
             <file>file:/H:/fpt/PRJ/CoursesProject/src/java/controller/ManagementServlet.java</file>
             <file>file:/H:/fpt/PRJ/CoursesProject/src/java/controller/CreateCourseServlet.java</file>
-            <file>file:/H:/fpt/PRJ/CoursesProject/web/page/management/courses/add-course.jsp</file>
+            <file>file:/H:/fpt/PRJ/CoursesProject/web/styles/blog.css</file>
+            <file>file:/H:/fpt/PRJ/CoursesProject/web/blog.jsp</file>
+            <file>file:/H:/fpt/PRJ/CoursesProject/src/java/dal/UserDAO.java</file>
+            <file>file:/H:/fpt/PRJ/CoursesProject/web/page/management/blogs/list-blog.jsp</file>
         </group>
     </open-files>
 </project-private>

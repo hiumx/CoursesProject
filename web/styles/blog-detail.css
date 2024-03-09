@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.blog__detail__content{
+    padding: 120px 0 100px 0;
+}
+
+.blogde__username {
+    font-weight: 500;
+}
+
+.blogde__interact {
+    display: flex;
+    align-items: center;
+    padding: 14px 0;
+    border-top: 1px solid #e6e6e6;
+}
+
+.blogde__comment {
+    margin-left: 64px;
+}
+
+.blogde__like,
+.blogde__comment {
+    color: #757575;
+    cursor: pointer;
+}
+
+.blogde__like:hover,
+.blogde__comment:hover {
+    color: #333;
+}
+
+.blogde__like__icon,
+.blogde__comment__icon {
+    font-size: 18px;
+
+}
+
+.blogde__like__detail,
+.blogde__comment__detail {
+    margin-right: 4px;
+}
+
+.blogde__title {
+    font-weight: 700;
+}
+
+.blogde__user__info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 34px 0;
+}
+
+.blogde__user__info__detail {
+    display: flex;
+    align-items: center;
+}
+
+.blogde__user__info__ud {
+    margin-left: 14px;
+}
+
+.blogde__user__info__u {
+    font-weight: 500;
+}
+
+.blogde__user__info__d {
+    font-size: 14px;
+    color: #757575;
+}
+
+.blogde__user__info__detail p {
+    margin: 0;
+}
+
+.blogde__user__img {
+    width: 50px;
+    height: 50px;
+}
+
+.blogde__more__info {
+    display: flex;
+    align-items: center;
+    color: #757575;
+    cursor: pointer;
+}
+
+.blogde__bookmark__icon {
+    margin-right: 14px;
+}

@@ -17,8 +17,8 @@ public class BlogDAO extends DBContext {
     public List<Blog> getAll() {
         List<Blog> list = new ArrayList<>();
         String sql = "SELECT Blog.*, [User].Id AS UserId, "
-                + "[User].Username AS Username, [User].image AS UserImage FROM Blog JOIN [User]"
-                + " ON Blog.UserId = [User].Id ";
+                + "[User].Username AS Username, [User].image AS UserImage, [Blog_Status].Status_Name AS Status_Name FROM Blog JOIN [User]"
+                + " ON Blog.UserId = [User].Id JOIN [Blog_Status] ON Blog.Status = [Blog_Status].Id WHERE Blog.Status = 'S2'";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
@@ -32,7 +32,8 @@ public class BlogDAO extends DBContext {
                         rs.getString("Content"),
                         rs.getInt("Like"),
                         rs.getInt("Comment"),
-                        user)
+                        user,
+                        rs.getString("Status_Name"))
                 );
             }
             return list;
@@ -43,35 +44,39 @@ public class BlogDAO extends DBContext {
         return null;
     }
 
-//    public Blog getBlogDetail(int id) {
-//        String sql = "SELECT Blog.Id AS Id, Blog.Title AS Title, Blog.Image AS Image, "
-//                + "Blog.Description AS Description, Blog.Content AS Content, Blog.Target AS Target, "
-//                + "Level.Name AS LevelName, Blog.Join_Number AS Join_Number "
-//                + "FROM [Blog] JOIN [Level] "
-//                + "ON [Blog].Level = [Level].Id WHERE [Blog].Id = ?";
-//
-//        try {
-//            PreparedStatement st = connection.prepareStatement(sql);
-//            st.setInt(1, id);
-//            ResultSet rs = st.executeQuery();
-//            if (rs.next()) {
-//                Blog course = new Blog(
-//                        rs.getInt("Id"),
-//                        rs.getString("Title"),
-//                        rs.getString("Image"),
-//                        rs.getString("Description"),
-//                        rs.getString("Content"),
-//                        rs.getString("Target"),
-//                        rs.getString("LevelName"),
-//                        rs.getString("Join_Number")
-//                );
-//                return course;
-//            }
-//        } catch (SQLException e) {
-//            System.out.println(e);
-//        }
-//        return null;
-//    }
+    public Blog getBlogById(int id) {
+        String sql = "SELECT Blog.*, [User].Id AS UserId,  [Blog_Status].Status_Name AS Status_Name \n"
+                + "                FROM Blog JOIN [User] \n"
+                + "              ON Blog.UserId = [User].Id \n"
+                + "               JOIN [Blog_Status] \n"
+                + "               ON Blog.Status = [Blog_Status].Id\n"
+                + "               WHERE Blog.Id = ? AND Blog.Status = 'S2'";
+
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setInt(1, id);
+            ResultSet rs = st.executeQuery();
+            UserDAO udb = new UserDAO();
+            if (rs.next()) {
+                User user = udb.getUserById(rs.getInt("UserId"));
+                System.out.println("User found: " + user);
+                Blog blog = new Blog(
+                        rs.getInt("Id"),
+                        rs.getString("Image"),
+                        rs.getString("Title"),
+                        rs.getString("Content"),
+                        rs.getInt("Like"),
+                        rs.getInt("Comment"),
+                        user,
+                        rs.getString("Status_Name")
+                );
+                return blog;
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return null;
+    }
 
     public int createBlog(String title, String image,
             String content, int userId) {

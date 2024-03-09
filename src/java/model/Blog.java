@@ -18,11 +18,12 @@ public class Blog {
     private int like;
     private int comment;
     private User user;
+    private String status;
 
     public Blog() {
     }
 
-    public Blog(int id, String image, String title, String content, int like, int comment, User user) {
+    public Blog(int id, String image, String title, String content, int like, int comment, User user, String status) {
         this.id = id;
         this.image = image;
         this.title = title;
@@ -30,6 +31,7 @@ public class Blog {
         this.like = like;
         this.comment = comment;
         this.user = user;
+        this.status = status;
     }
 
     public int getId() {
@@ -88,9 +90,19 @@ public class Blog {
         this.user = user;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     @Override
     public String toString() {
-        return "Blog{" + "id=" + id + ", image=" + image + ", title=" + title + ", content=" + content + ", like=" + like + ", comment=" + comment +  "user" + user +  '}';
+        return "Blog{" + "id=" + id + ", image=" + image + ", title=" + title + ", content=" + content + ", like=" + like + ", comment=" + comment + ", user=" + user + ", status=" + status + '}';
     }
+
+    
     
 }

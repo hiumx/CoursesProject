@@ -17,12 +17,15 @@
         <div class="home__wrapper">
             <%@include file="header.jsp" %>
 
-            <%@include file="courses.jsp" %>
+            <div class="home__content">
+                <%@include file="courses.jsp" %>
 
-            <%@include file="blog.jsp" %>
+                <%@include file="blogs.jsp" %>
+            </div>
+
 
             <%@include file="footer.jsp" %>
         </div>
-        
+
     </body>
 </html>
