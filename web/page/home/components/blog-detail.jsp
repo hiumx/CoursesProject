@@ -17,7 +17,7 @@
     </head>
     <body>
         <div class="blog__detail__wrapper">
-            <%@include file="../../header.jsp" %>
+            <%@include file="../components/header.jsp"%>
             <div class="blog__detail__content container">
                 <c:set var="b" value="${requestScope.blog}" />
                 <div class="row">
@@ -51,14 +51,14 @@
                         </div>
                         <div class="blogde__content__post">
                             ${b.content}
-                        </div>
+                        </div>  
                     </div>
                     <div class="col-lg-3">
 
                     </div>
                 </div>
             </div>
-            <%@include file="../../footer.jsp" %>
+            <%@include file="../components/footer.jsp" %>
         </div>
     </body>
 </html>

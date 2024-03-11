@@ -10,7 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="stylesheet" href="./styles/header.css"/>
+        <link rel="stylesheet" href="../../../styles/header.css"/>
         <title>JSP Page</title>
     </head>
     <body>
@@ -28,7 +28,25 @@
                     <input class="header__search" type="text" name="search-course" placeholder="Tìm kiếm khóa học..." />
                 </div>
                 <div class="header__profile">
-                    <p class="header__profile__courses">Khóa học của tôi</p>
+                    <div class="header__profile__courses__wrapper">
+                        <p class="header__profile__courses">Khóa học của tôi</p>
+<!--                        <div class="header__profile__courses__detail">
+                            <div>
+                                <h3>Khóa học của tôi</h3>
+                                <p>Xem tất cả</p>
+                            </div>
+                            <ul class="header__courses__list">
+                                <li>
+                                    <img src="src" alt="alt"/>
+                                    <div>
+                                        <h6>Làm việc với Terminal & Ubutu</h6>
+                                        <p>Học cách đây 2 tháng trước</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>-->
+                    </div>
+                    
                     <div>
                         <i class="fa-solid fa-bell header__profile__bell__icon"></i>
                     </div>
@@ -38,8 +56,8 @@
                             <div class="header__profile__ava__name">
                                 <img class="header__profile__avatar" src="./images/avatar/avatar-1.jpg" alt="avarta"/>
                                 <div class="header__profile__name">
-                                    <h5>Cong Thanh Truong</h5>
-                                    <p>@congthanhtruong2</p>
+                                    <h5>${sessionScope.user.username}</h5>
+                                    <p>@${sessionScope.user.username}</p>
                                 </div>
                             </div>
                             <ul class="header__profile__list">

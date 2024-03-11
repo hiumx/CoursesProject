@@ -17,7 +17,7 @@
         <div class="register__wrapper">
             <div class="register__content">
                 <h2 class="register__title">Register</h2>
-                <form class="register__form">
+                <form action="/register" method="POST" class="register__form">
                     <div class="register__form__username">
                         <label for="username">Username</label>
                         <input 
@@ -26,6 +26,20 @@
                             id="username" 
                             class="register__form__input"
                             placeholder="Type your username"
+                            value="${requestScope.username}"
+                            required
+                        />
+                    </div>
+                    <div class="register__form__phone">
+                        <label for="phone">Phone number</label>
+                        <input 
+                            type="text" 
+                            name="phone" 
+                            id="phone" 
+                            class="register__form__input"
+                            placeholder="Type your phone"
+                            value="${requestScope.phone}"
+                            required
                         />
                     </div>
                     <div class="register__form__password">
@@ -36,6 +50,8 @@
                             id="password"
                             class="register__form__input"
                             placeholder="Type your password"
+                            value="${requestScope.password}"
+                            required
                         />
                         <div class="register__form__eye__icon__wrapper" onclick="handleShowPassword()">
                             <i class="fa-regular fa-eye register__form__eye__icon"></i>
@@ -50,12 +66,15 @@
                             id="confirm-password"
                             class="register__form__input"
                             placeholder="Type your confirm password"
+                            value="${requestScope.confirmPassword}"
+                            required
                         />
                         <div class="register__form__eye__icon__wrapper" onclick="handleShowConfirmPassword()">
                             <i class="fa-regular fa-eye register__form__eye__icon"></i>
                         </div>
                         
                     </div>
+                    <p class="register__error__message">${requestScope.error}</p>
                     <button type="submit" class="register__form__btn">Register</button>
                 </form>
                 <div class="register__other__sign__up">

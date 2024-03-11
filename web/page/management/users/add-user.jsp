@@ -21,6 +21,10 @@
                             <label for="username">Username</label>
                             <input type="text" class="form-control" id="username" value="${requestScope.username}" name="username" placeholder="Username..." required/>
                         </div>
+                        <div class="form-group mt-3">
+                            <label for="phone">Phone</label>
+                            <input type="text" class="form-control" id="phone" value="${requestScope.phone}" name="phone" placeholder="Phone..." required/>
+                        </div>
                         <div class="form-group mt-3 mb-3">
                             <label for="password">Password</label>
                             <input type="text" class="form-control" id="password" value="${requestScope.password}" name="password" placeholder="Password..." required>

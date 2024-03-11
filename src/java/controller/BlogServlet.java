@@ -67,7 +67,7 @@ public class BlogServlet extends HttpServlet {
             System.out.println("BLOG RES: " + blog);
 
             request.setAttribute("blog", blog);
-            request.getRequestDispatcher("/page/home/blog-detail.jsp").forward(request, response);
+            request.getRequestDispatcher("/page/home/components/blog-detail.jsp").forward(request, response);
 
         } catch (NumberFormatException e) {
             System.out.println(e);

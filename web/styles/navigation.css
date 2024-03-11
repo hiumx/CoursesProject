@@ -92,6 +92,7 @@
     cursor: pointer;
     overflow: hidden;
     animation: fadeIn 0.3s linear forwards;
+    z-index: 2;
 }
 
 @keyframes fadeIn {

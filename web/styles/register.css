@@ -17,11 +17,11 @@
 }
 
 .register__content {
-    min-width: 400px;
+    width: 400px;
     background: #fff;
     margin: 0 auto;
     border-radius: 28px;
-    padding: 38px;
+    padding: 18px 38px;
 }
 
 .register__title {
@@ -36,7 +36,8 @@
 
 }
 
-.register__form__username {
+.register__form__username,
+.register__form__phone{
     margin-bottom: 24px;
 }
 
@@ -158,3 +159,6 @@ label {
     text-decoration: none;
 }
 
+.register__error__message {
+    color: red;
+}

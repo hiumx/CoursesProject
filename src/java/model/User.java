@@ -12,6 +12,7 @@ public class User {
     
     private int id;
     private String username;
+    private String phone;
     private String password;
     private String role;
     private String image;
@@ -19,9 +20,10 @@ public class User {
     public User() {
     }
 
-    public User(int id, String username, String password, String role, String image) {
+    public User(int id, String username, String phone, String password, String role, String image) {
         this.id = id;
         this.username = username;
+        this.phone = phone;
         this.password = password;
         this.role = role;
         this.image = image;
@@ -41,6 +43,14 @@ public class User {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public String getPassword() {
@@ -69,8 +79,9 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" + "id=" + id + ", username=" + username + ", password=" + password + ", role=" + role + ", image=" + image + '}';
+        return "User{" + "id=" + id + ", username=" + username + ", phone=" + phone + ", password=" + password + ", role=" + role + ", image=" + image + '}';
     }
 
+    
     
 }

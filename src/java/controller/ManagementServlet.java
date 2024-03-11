@@ -14,6 +14,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
 import java.util.List;
 import model.Blog;
 import model.Course;
@@ -69,8 +70,6 @@ public class ManagementServlet extends HttpServlet {
         if (typeRaw != null) {
             type = typeRaw;
         }
-        
-        System.out.println("TYPEEE:" + type);
 
         switch (type) {
             case "user":
@@ -88,8 +87,17 @@ public class ManagementServlet extends HttpServlet {
                 break;
             case "blog":
                 BlogDAO bdb = new BlogDAO();
-                List<Blog> listBlogs = bdb.getAll();
-                System.out.println("LIST BLOGGG:" + listBlogs);
+                String status = request.getParameter("status");
+                List<Blog> listBlogs = new ArrayList<>();
+                if(status == null ) {
+                    listBlogs = bdb.getAll();
+                    request.setAttribute("status", "all");
+                } else if (status.equals("confirmed")) {
+                    listBlogs = bdb.getBlogsByStatus("Confirmed");
+                } else if (status.equals("pending")) {
+                    listBlogs = bdb.getBlogsByStatus("Pendding");
+                    request.setAttribute("status", "pending");
+                };
                 request.setAttribute("listBlogs", listBlogs);
                 request.setAttribute("type", type);
                 request.getRequestDispatcher("/page/management/management.jsp").forward(request, response);

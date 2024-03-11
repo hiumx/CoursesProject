@@ -87,7 +87,7 @@ public class CourseServlet extends HttpServlet {
 
             request.setAttribute("course", course);
             request.setAttribute("listContents", listContents);
-            request.getRequestDispatcher("course-detail.jsp").forward(request, response);
+            request.getRequestDispatcher("/page/home/components/course-detail.jsp").forward(request, response);
 
         } catch (NumberFormatException e) {
             System.out.println(e);

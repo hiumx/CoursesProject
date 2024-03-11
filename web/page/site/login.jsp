@@ -17,17 +17,18 @@
         <div class="login__wrapper">
             <div class="login__content">
                 <h2 class="login__title">Login</h2>
-                <form class="login__form">
+                <form action="/login" method="POST" class="login__form">
                     <div class="login__form__username">
                         <label for="username">Username</label>
-                        
+
                         <input 
                             type="text" 
                             name="username" 
                             id="username" 
                             class="login__form__input"
                             placeholder="Type your username"
-                        />
+                            value="${requestScope.username}"
+                            />
                     </div>
                     <div class="login__form__password">
                         <label for="password">Password</label>
@@ -37,19 +38,22 @@
                             id="password"
                             class="login__form__input"
                             placeholder="Type your password"
-                        />
+                            value="${requestScope.password}"
+                            />
                         <div class="login__form__eye__icon__wrapper" onclick="handleShowPassword()">
                             <i class="fa-regular fa-eye login__form__eye__icon"></i>
                         </div>
-                        
+
                     </div>
+                    <p class="login__error__msg">${requestScope.msg}</p>
+
                     <a href="#" class="login__forgot__password">Forgot password?</a>
                     <button type="submit" class="login__form__btn">Login</button>
                 </form>
                 <div class="login__other__sign__up">
                     <p>Or Sign Up Using</p>
                     <div class="login__other__icons">
-                            <i class="fa-brands fa-facebook login__facebook__icon"></i>
+                        <i class="fa-brands fa-facebook login__facebook__icon"></i>
                         <i class="fa-brands fa-twitter login__twitter__icon"></i>
                         <i class="fa-brands fa-google login__google__icon"></i>
                     </div>
@@ -60,12 +64,12 @@
                 </div>
             </div>
         </div>
-        
-         <script type="text/javascript">
+
+        <script type="text/javascript">
             const passwordInput = document.querySelector('#password');
             const confirmPasswordInput = document.querySelector('#confirm-password');
             const handleShowPassword = () => {
-                if(passwordInput.type === 'password')
+                if (passwordInput.type === 'password')
                     passwordInput.type = 'text';
                 else
                     passwordInput.type = 'password';

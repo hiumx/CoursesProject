@@ -76,8 +76,10 @@ public class CreateUserServlet extends HttpServlet {
             throws ServletException, IOException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
+        String phone = request.getParameter("phone");
 
         String pattern = "^.*(?=.{8,})(?=..*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).*$";
+        String phoneRegex = "^\\d{10}$";
         UserDAO udb = new UserDAO();
 
         boolean isUsernameExist = udb.isUserNameExist(username);
@@ -86,6 +88,14 @@ public class CreateUserServlet extends HttpServlet {
             request.setAttribute("error", "User name already existed! Please try anothers.");
             request.setAttribute("type", "addUser");
             request.setAttribute("username", username);
+            request.setAttribute("phone", phone);
+            request.setAttribute("password", password);
+            request.getRequestDispatcher("/page/management/management.jsp").forward(request, response);
+        } else if (!phone.matches(phoneRegex)) {
+            request.setAttribute("error", "Phone already existed!. Please enter another.");
+            request.setAttribute("type", "addUser");
+            request.setAttribute("username", username);
+            request.setAttribute("phone", phone);
             request.setAttribute("password", password);
             request.getRequestDispatcher("/page/management/management.jsp").forward(request, response);
         } else if (!password.matches(pattern)) {
@@ -93,10 +103,11 @@ public class CreateUserServlet extends HttpServlet {
                     + " one upper char and one special char");
             request.setAttribute("type", "addUser");
             request.setAttribute("username", username);
+            request.setAttribute("phone", phone);
             request.setAttribute("password", password);
             request.getRequestDispatcher("/page/management/management.jsp").forward(request, response);
         } else {
-            int rowEffected = udb.createUser(username, password);
+            int rowEffected = udb.createUser(username, password, phone);
             if (rowEffected > 0) {
                 response.sendRedirect("/management");
             }

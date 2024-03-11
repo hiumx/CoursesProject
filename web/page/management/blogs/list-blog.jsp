@@ -15,37 +15,75 @@
     <body>
         <div class="container" style="margin-top: 80px">
             <h3 class="mb-3 text-center">Blog Management</h3>
-            <button type="button" class="btn btn-primary add-new-blog-btn">Add new blog</button>
 
-            <table class="table table-hover mt-3">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Title</th>
-                        <th>Image</th>
-                        <th>Like</th>
-                        <th>Username</th>
-                        <th>Status</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <c:forEach var="b" items="${requestScope.listBlogs}" varStatus="loop">
+            <c:set var="status" value="${requestScope.status}" />
+            <c:set var="listBlogs" value="${requestScope.listBlogs}" />
+
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <button type="button" class="btn btn-primary all-blog-btn">All blogs</button>
+                    <button type="button" class="btn btn-primary pending-blog-btn">Pending blogs</button>
+                    <button type="button" class="btn btn-primary confirmed-blog-btn">Confirmed blogs</button>
+                </div>
+
+                <button type="button" class="btn btn-primary add-new-blog-btn">Add new blog</button>
+            </div>
+
+            <p style="color: red">${requestScope.msg}</p>
+            <c:if test="${listBlogs.isEmpty()}">
+                <p style="text-align: center; margin-top: 20px">There are no blogs here.</p>
+            </c:if>
+            <c:if test="${!listBlogs.isEmpty()}">
+                <table class="table table-hover mt-3">
+                    <thead>
                         <tr>
-                            <td>${loop.index+1}</td>
-                            <td>${b.title}</td>
-                            <td>${b.image}</td>
-                            <td>${b.like}</td>
-                            <td>${b.user.getUsername()}</td>
-                            <td>${b.status}</td>
-                            <td>
-                                <button class="btn btn-info">Update</button>
-                                <button class="btn btn-danger">Delete</button>
-                            </td>
+                            <th>#</th>
+                            <th>Title</th>
+                            <th>Image</th>
+                            <th>Like</th>
+                            <th>Username</th>
+                            <th>Status</th>
+                                <c:if test="${!status.equals('all')}">
+                                <th>Action</th>
+                                </c:if>
                         </tr>
-                    </c:forEach>
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+
+                        <c:forEach var="b" items="${listBlogs}" varStatus="loop">
+                            <tr>
+                                <td>${loop.index+1}</td>
+                                <td>${b.title}</td>
+                                <td>${b.image}</td>
+                                <td>${b.like}</td>
+                                <td>${b.user.getUsername()}</td>
+                                <td>${b.status}</td>
+                                <c:choose> 
+                                    <c:when test="${status == null}">
+                                        <td>
+                                            <a class="btn btn-info">Update</a>
+                                            <a class="btn btn-danger">Delete</a>
+                                        </td>
+                                    </c:when>
+                                    <c:when test="${status.equals('all')}">
+                                        <td>
+                                        </td>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <td>
+                                            <a href="/management/blogs/confirm?id=${b.id}" class="btn btn-info">Confirm</a>
+                                            <a href="#" class="btn btn-danger">Cancel</a>
+                                        </td>
+                                    </c:otherwise>
+                                </c:choose>
+
+                            </tr>
+                        </c:forEach>
+
+                    </tbody>
+                </table>
+            </c:if>
+
         </div>
         <script src="../../../js/list-blog.js"></script>
     </body>
