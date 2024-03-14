@@ -21,19 +21,23 @@
     background: #fff;
     margin: 0 auto;
     border-radius: 28px;
-    padding: 18px 38px;
+    padding: 10px 38px 23px;
 }
 
 .register__title {
     text-align: center;
     font-weight: 600;
     font-size: 30px;
-    margin: 10px 0 50px 0;
+    margin: 10px 0 30px 0;
     color: #333;
 }
 
 .register__form {
 
+}
+
+.register__register__link {
+    text-decoration: none;
 }
 
 .register__form__username,
@@ -86,6 +90,7 @@
 .register__other__sign__up {
     text-align: center;
     color: #6e6c6c;
+    margin: 22px 10px;
 }
 
 label {
@@ -95,7 +100,7 @@ label {
 }
 
 .register__form__btn {
-    margin-top: 20px;
+    margin-top: 10px;
     width: 100%;
     padding: 9px;
     border-radius: 30px;
@@ -110,10 +115,6 @@ label {
 
 .register__form__btn:hover {
     opacity: 0.8;
-}
-
-.register__other__sign__up {
-    margin: 36px 10px;
 }
 
 .register__other__icons {
@@ -153,10 +154,6 @@ label {
 .register__register__question {
     color: #333;
     margin-bottom: 2px;
-}
-
-.register__register__link {
-    text-decoration: none;
 }
 
 .register__error__message {

@@ -1,10 +1,10 @@
-package controller;
-
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-import dal.UserDAO;
+package controller;
+
+import dal.CourseDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -12,13 +12,15 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.List;
+import model.Course;
 
 /**
  *
  * @author Admin
  */
-@WebServlet(urlPatterns = {"/register"})
-public class RegisterServlet extends HttpServlet {
+@WebServlet(name = "SearchCourseServlet", urlPatterns = {"/courses/search-courses"})
+public class SearchCourseServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,10 +39,10 @@ public class RegisterServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet RegisterServelet</title>");
+            out.println("<title>Servlet SearchCourseServlet</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet RegisterServelet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet SearchCourseServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -58,7 +60,10 @@ public class RegisterServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("/page/site/register.jsp").forward(request, response);
+        String searchTerm = request.getParameter("term");
+        System.out.println(searchTerm);
+        CourseDAO cdb = new CourseDAO();
+        List<Course> listCoursesSearch = cdb.searchCoursesByKeyword(searchTerm, response);
     }
 
     /**
@@ -72,45 +77,7 @@ public class RegisterServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String username = request.getParameter("username");
-        String phone = request.getParameter("phone");
-        String password = request.getParameter("password");
-        String confirmPassword = request.getParameter("confirm-password");
-
-        String phoneRegex = "^\\d{10}$";
-        String passwordPattern = "^.*(?=.{8,})(?=..*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).*$";
-
-        UserDAO udb = new UserDAO();
-        String error = "";
-        if (udb.isUserNameExist(username)) {
-            error = "Username already existed. Please enter another.";
-        } else if (!phone.matches(phoneRegex)) {
-            error = "Phone number invalid!";
-        } else if (udb.isPhoneExist(phone)) {
-            error = "Phone already existed. Please enter another.";
-        } else if (!password.matches(passwordPattern)) {
-            error = "Password must be at least 8 characters, one lower char,"
-                    + " one upper char and one special char";
-        } else if (!password.equals(confirmPassword)) {
-            error = "Confirm password not matched!";
-        }
-
-        if (error.equalsIgnoreCase("")) {
-            int rowEff = udb.createUser(username, password, phone);
-            if (rowEff > 0) {
-                response.sendRedirect("/login.jsp");
-            } else {
-                request.setAttribute("error", "Register failed!");
-                request.getRequestDispatcher("/page/site/register.jsp").forward(request, response);
-            }
-        } else {
-            request.setAttribute("error", error);
-            request.setAttribute("username", username);
-            request.setAttribute("phone", phone);
-            request.setAttribute("password", password);
-            request.setAttribute("confirmPassword", confirmPassword);
-            request.getRequestDispatcher("/page/site/register.jsp").forward(request, response);
-        }
+        processRequest(request, response);
     }
 
     /**

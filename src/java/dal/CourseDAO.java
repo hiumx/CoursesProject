@@ -4,6 +4,9 @@
  */
 package dal;
 
+import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -91,7 +94,7 @@ public class CourseDAO extends DBContext {
         }
         return 0;
     }
-    
+
     public List<Course> getAllCoursesByUserId(int userId) {
         List<Course> list = new ArrayList<>();
         String sql = "SELECT c.* FROM Course AS c JOIN JoinCourse as jc ON  c.Id = jc.CourseId WHERE jc.UserId = ?";
@@ -114,6 +117,33 @@ public class CourseDAO extends DBContext {
             }
             return list;
 
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return null;
+    }
+
+    public List<Course> searchCoursesByKeyword(String keyword, HttpServletResponse response) throws IOException {
+        List<Course> list = new ArrayList<>();
+        String sql = "SELECT * FROM Course WHERE Title LIKE ?";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setString(1, "%" + keyword + "%");
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                list.add(new Course(
+                        rs.getInt("Id"),
+                        rs.getString("Title"),
+                        rs.getString("Image"),
+                        rs.getString("Description"),
+                        rs.getString("Content"),
+                        rs.getString("Target"),
+                        rs.getString("Level"),
+                        rs.getString("Join_Number")
+                )
+                );
+            }
+            return list;
         } catch (SQLException e) {
             System.out.println(e);
         }

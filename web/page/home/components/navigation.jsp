@@ -27,7 +27,7 @@
                     <a class="header__nav__item--link" href="#">Khóa học</a>
                 </li>
                 <li class="header__nav__item">
-                    <a href="/my-courses" class="header__nav__item--link" href="#">Khóa học của tôi</a>
+                    <a href="${sessionScope.user == null ? "/login" : "/my-courses"}" class="header__nav__item--link">Khóa học của tôi</a>
                 </li>
                 <li class="header__nav__item">
                     <a class="header__nav__item--link" href="#">Lộ trình</a>

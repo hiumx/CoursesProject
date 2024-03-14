@@ -30,7 +30,11 @@
                         <a class="nav-link" href="/management?type=blog">Blog</a>
                     </li>
                 </ul>
-                <button class="btn btn-secondary">Logout</button>
+                <div>
+                    <p style="margin: 0; padding: 0">${sessionScope.user.username}</p>
+                    <a href="/logout" class="btn btn-secondary">Logout</a>
+                </div>
+                
             </div>
         </nav>
     </body>

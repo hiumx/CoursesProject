@@ -111,16 +111,15 @@ public class AuthenticatonFilter implements Filter {
 
         doBeforeProcessing(request, response);
 
-//        HttpServletRequest req = (HttpServletRequest) request;
-//        HttpServletResponse res = (HttpServletResponse) response;
-//
-//        
-//        HttpSession session = req.getSession();
-//        User user = (User)session.getAttribute("user");
-//        
-//        if(user == null) {
-//            res.sendRedirect("/login");
-//        }
+        HttpServletRequest req = (HttpServletRequest) request;
+        HttpServletResponse res = (HttpServletResponse) response;
+        
+        HttpSession session = req.getSession();
+        User user = (User)session.getAttribute("user");
+                
+        if(user == null) {
+            req.getRequestDispatcher("/login");
+        }
         
         Throwable problem = null;
         try {
