@@ -150,10 +150,17 @@
     border: 1px solid #f05123;
     outline: none;
     border-radius: 999px;
+    text-align: center;
+    text-decoration: none;
 }
 
 .course__detail__register__btn:hover {
     opacity: 0.9;
+}
+
+.course__detail__error__message {
+    color: red;
+    font-size: 14px;
 }
 
 .course__detail__more__list {

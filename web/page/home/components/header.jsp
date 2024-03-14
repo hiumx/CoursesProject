@@ -4,6 +4,7 @@
     Author     : hieumaixuan
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -24,29 +25,34 @@
                     </a>
                 </div>
                 <div class="header__search__wrapper">
-                    <i class="fa-solid fa-magnifying-glass header__search_icon"></i>
+                    <i class="fa-solid fa-magnifying-glass header__search__icon"></i>
                     <input class="header__search" type="text" name="search-course" placeholder="Tìm kiếm khóa học..." />
                 </div>
                 <div class="header__profile">
                     <div class="header__profile__courses__wrapper">
                         <p class="header__profile__courses">Khóa học của tôi</p>
-<!--                        <div class="header__profile__courses__detail">
-                            <div>
+                        <div class="header__profile__courses__detail">
+                            <div class="header__profile__top">
                                 <h3>Khóa học của tôi</h3>
-                                <p>Xem tất cả</p>
+                                <a href="/my-courses" class="header__profile__top__show__all">Xem tất cả</a>
                             </div>
                             <ul class="header__courses__list">
-                                <li>
-                                    <img src="src" alt="alt"/>
-                                    <div>
-                                        <h6>Làm việc với Terminal & Ubutu</h6>
-                                        <p>Học cách đây 2 tháng trước</p>
-                                    </div>
-                                </li>
+                                <c:forEach items="#{sessionScope.listMyCourses}" var="mc">
+                                    <li class="header__courses__item">
+                                        <a href="/courses?id=${mc.id}" class="header__courses__item__link__img">
+                                            <img class="header__courses__item__img" src="../../.${mc.image}" alt="course-img"/>
+                                        </a>
+                                        <div class="header__courses__item__detail">
+                                            <a href="/courses?id=${mc.id}" class="header__courses__item__title">${mc.title}</a>
+                                            <p class="header__courses__since__learn">Học cách đây 2 tháng trước</p>
+                                            <div class="header__courses__percent__complete"></div>
+                                        </div>
+                                    </li>
+                                </c:forEach>
                             </ul>
-                        </div>-->
+                        </div>
                     </div>
-                    
+
                     <div>
                         <i class="fa-solid fa-bell header__profile__bell__icon"></i>
                     </div>

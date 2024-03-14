@@ -4,11 +4,13 @@
  */
 package model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Admin
  */
-public class Role {
+public class Role implements Serializable{
     private int id;
     private String roleName;
 

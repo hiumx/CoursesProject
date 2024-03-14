@@ -17,22 +17,38 @@
         <nav class="header__nav">
             <ul class="header__nav__list">
                 <li class="header__nav__wrapper__close__icon">
+                    <h4>Kafka Education</h4>
                     <i class="fa-solid fa-xmark nav__close__icon"></i>
                 </li>
                 <li class="header__nav__item">
-                    <a class="header__nav__item--link" href="/courses/home.jsp">Trang chủ</a>
+                    <a class="header__nav__item--link" href="/home">Trang chủ</a>
                 </li>
                 <li class="header__nav__item">
                     <a class="header__nav__item--link" href="#">Khóa học</a>
                 </li>
                 <li class="header__nav__item">
-                    <a class="header__nav__item--link" href="#">Bài viết</a>
+                    <a href="/my-courses" class="header__nav__item--link" href="#">Khóa học của tôi</a>
+                </li>
+                <li class="header__nav__item">
+                    <a class="header__nav__item--link" href="#">Lộ trình</a>
+                </li>
+                <li class="header__nav__item">
+                    <a class="header__nav__item--link" href="#">Viết bài viết mới</a>
+                </li>
+                <li class="header__nav__item">
+                    <a class="header__nav__item--link" href="#">Tất cả bài viết</a>
+                </li>
+                <li class="header__nav__item">
+                    <a class="header__nav__item--link" href="#">Chứng chỉ</a>
                 </li>
                 <li class="header__nav__item">
                     <a class="header__nav__item--link" href="#">Về chúng tôi</a>
                 </li>
                 <li class="header__nav__item">
                     <a class="header__nav__item--link" href="#">Liên hệ</a>
+                </li>
+                <li class="header__nav__item">
+                    <a class="header__nav__item--link" href="#">Chính sách bảo mật</a>
                 </li>
             </ul>
             <div class="nav__social">

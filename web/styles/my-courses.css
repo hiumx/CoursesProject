@@ -1,0 +1,61 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+.mc__content {
+    padding-top: 106px;
+}
+
+.mc__title {
+    padding: 0 12px;
+}
+
+.mc__courses__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin: 56px 0 80px 0;
+}
+
+.mc__courses__item {
+    margin-bottom: 30px;
+}
+
+.mc__courses__item__link__img {
+    text-decoration: none;
+    width: 100%;
+    display: block;
+    border-radius: 16px;
+}
+
+.mc__courses__item h5 {
+    color: #292929;
+    font-size: 16px;
+    margin: 10px 0;
+    font-weight: 500;
+}
+
+.mc__courses__item p {
+    color: #666;
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+
+.mc__item__learn__completed {
+    background-color: #ddd;
+    border-radius: 4px;
+    height: 8px;
+    margin-top: 6px;
+    overflow: hidden;
+}
+
+.mc__item__img {
+    width: 100%;
+    border-radius: 16px;
+}

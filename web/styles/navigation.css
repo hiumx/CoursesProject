@@ -1,13 +1,14 @@
 
 .header__nav {
-    width: 16%;
+    width: calc(16% + 3px);
     height: 100vh;
-    position: absolute; 
+    position: absolute;
     top: 0;
     left: 0;
     background-color: #fff;
     transform: translateX(-100%);
     opacity: 0;
+    z-index: 2;
     transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
@@ -26,27 +27,37 @@
 }
 
 .header__nav__wrapper__close__icon {
-    text-align: end;
     background-color: rgb(250 239 239);
     border-bottom: 1px solid #b3b3b3;
+    display: flex;
+    align-items: center;
+    padding: 16px 10px;
+    justify-content: space-between;
 }
 
+.header__nav__wrapper__close__icon h4 {
+    margin: 0;
+    font-size: 20px;
+    color: #dc3434;
+}
+
+
 .nav__close__icon {
-    font-size: 24px; 
-    padding: 16px;
+    font-size: 24px;
+    padding: 0 4px;
     cursor: pointer;
     color: #333;
 }
 
 .nav__close__icon:hover {
-    opacity: 0.8;
+    opacity: 0.7;
 }
 
 .header__nav__item--link {
     display: block;
-    padding: 16px 10px;
+    padding: 14px 10px;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 17px;
     color: #333;
     border-bottom: 1px solid #b3b3b3;
 }
@@ -98,7 +109,8 @@
 @keyframes fadeIn {
     from {
         background-color: rgba(0, 0, 0, 0);
-    } to {
+    }
+    to {
         background-color: rgba(0, 0, 0, 0.3);
     }
 }

@@ -4,8 +4,7 @@
  */
 package controller;
 
-import dal.CourseDAO;
-import dal.UserDAO;
+import dal.UserCourseDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -14,16 +13,16 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import java.util.List;
-import model.Course;
+import java.time.LocalDate;
 import model.User;
+import model.UserCourse;
 
 /**
  *
  * @author Admin
  */
-@WebServlet(name = "LoginServlet", urlPatterns = {"/login"})
-public class LoginServlet extends HttpServlet {
+@WebServlet(name = "JoinNewCourseServlet", urlPatterns = {"/courses/join"})
+public class JoinNewCourseServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -42,10 +41,10 @@ public class LoginServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet LoginServlet</title>");
+            out.println("<title>Servlet JoinNewCourseServlet</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet LoginServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet JoinNewCourseServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -63,7 +62,31 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("/page/site/login.jsp").forward(request, response);
+        String courseIdRaw = request.getParameter("courseId");
+        HttpSession session = request.getSession();
+        try {
+            int courseId = Integer.parseInt(courseIdRaw);
+            int userId = ((User)session.getAttribute("user")).getId();
+
+            System.out.println(courseId + "   " + userId);
+            UserCourseDAO ucdb = new UserCourseDAO();
+
+            if (!ucdb.isJoinedCourse(userId, courseId)) {
+                int rowEff = ucdb.joinNewCourse(new UserCourse(userId, courseId, LocalDate.now().toString()));
+                if (rowEff > 0) {
+                    response.sendRedirect("/mycourses");    
+                } else {
+                    request.setAttribute("message", "Something wrong from server!");
+                    request.getRequestDispatcher("/courses?id=" + courseId).forward(request, response);
+                }
+            } else {
+                request.setAttribute("message", "Bạn đã tham gia khóa học này rồi!");
+                request.getRequestDispatcher("/courses?id=" + courseId).forward(request, response);
+            }
+
+        } catch (NumberFormatException e) {
+            System.out.println(e);
+        }
     }
 
     /**
@@ -77,29 +100,7 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-
-        UserDAO udb = new UserDAO();
-        CourseDAO cdb = new CourseDAO();
-
-        User user = udb.checkLogin(username, password);
-
-        System.out.println("USER: " + user);
-
-        if (user != null) {
-            HttpSession session = request.getSession();
-            List<Course> listMyCourses = cdb.getAllCoursesByUserId(user.getId());
-            
-            session.setAttribute("user", user);
-            session.setAttribute("listMyCourses", listMyCourses);
-            response.sendRedirect("/home");
-        } else {
-            request.setAttribute("username", username);
-            request.setAttribute("password", password);
-            request.setAttribute("msg", "Username or password incorrect!");
-            request.getRequestDispatcher("/page/site/login.jsp").forward(request, response);
-        }
+        processRequest(request, response);
     }
 
     /**

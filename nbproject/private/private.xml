@@ -3,38 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/H:/fpt/PRJ/CoursesProject/web/page/management/components/header-secondary.jsp</file>
-            <file>file:/H:/fpt/PRJ/CoursesProject/web/page/home/components/course-detail.jsp</file>
-            <file>file:/H:/fpt/PRJ/CoursesProject/web/page/home/components/blog-detail.jsp</file>
-            <file>file:/H:/fpt/PRJ/CoursesProject/web/page/site/login.jsp</file>
-            <file>file:/H:/fpt/PRJ/CoursesProject/src/java/controller/CourseServlet.java</file>
-            <file>file:/H:/fpt/PRJ/CoursesProject/web/styles/navigation.css</file>
-            <file>file:/H:/fpt/PRJ/CoursesProject/web/page/management/users/add-user.jsp</file>
-            <file>file:/H:/fpt/PRJ/CoursesProject/src/java/dal/BlogDAO.java</file>
-            <file>file:/H:/fpt/PRJ/CoursesProject/web/page/management/management.jsp</file>
-            <file>file:/H:/fpt/PRJ/CoursesProject/web/styles/blogs.css</file>
-            <file>file:/H:/fpt/PRJ/CoursesProject/web/page/management/blogs/add-blog.jsp</file>
-            <file>file:/H:/fpt/PRJ/CoursesProject/src/java/controller/RegisterServlet.java</file>
-            <file>file:/H:/fpt/PRJ/CoursesProject/src/java/controller/BlogServlet.java</file>
-            <file>file:/H:/fpt/PRJ/CoursesProject/web/page/home/components/header.jsp</file>
-            <file>file:/H:/fpt/PRJ/CoursesProject/src/java/controller/LoginServlet.java</file>
-            <file>file:/H:/fpt/PRJ/CoursesProject/web/page/management/blogs/list-blog.jsp</file>
-            <file>file:/H:/fpt/PRJ/CoursesProject/web/styles/login.css</file>
-            <file>file:/H:/fpt/PRJ/CoursesProject/web/page/site/register.jsp</file>
-            <file>file:/H:/fpt/PRJ/CoursesProject/src/java/model/User.java</file>
-            <file>file:/H:/fpt/PRJ/CoursesProject/src/java/controller/CreateBlogServlet.java</file>
-            <file>file:/H:/fpt/PRJ/CoursesProject/web/page/home/home.jsp</file>
-            <file>file:/H:/fpt/PRJ/CoursesProject/src/java/controller/HomeServlet.java</file>
-            <file>file:/H:/fpt/PRJ/CoursesProject/web/page/home/courses.jsp</file>
-            <file>file:/H:/fpt/PRJ/CoursesProject/web/page/home/components/navigation.jsp</file>
-            <file>file:/H:/fpt/PRJ/CoursesProject/src/java/controller/CreateUserServlet.java</file>
-            <file>file:/H:/fpt/PRJ/CoursesProject/web/page/home/blogs.jsp</file>
-            <file>file:/H:/fpt/PRJ/CoursesProject/web/js/list-blog.js</file>
-            <file>file:/H:/fpt/PRJ/CoursesProject/src/java/controller/ManagementServlet.java</file>
-            <file>file:/H:/fpt/PRJ/CoursesProject/src/java/controller/CreateCourseServlet.java</file>
-            <file>file:/H:/fpt/PRJ/CoursesProject/web/page/home/components/footer.jsp</file>
-            <file>file:/H:/fpt/PRJ/CoursesProject/src/java/dal/UserDAO.java</file>
-            <file>file:/H:/fpt/PRJ/CoursesProject/src/java/controller/ConfirmBlogServlet.java</file>
+            <file>file:/H:/fpt/PRJ/CoursesProject/web/styles/my-courses.css</file>
+            <file>file:/H:/fpt/PRJ/CoursesProject/web/page/home/components/my-courses.jsp</file>
         </group>
     </open-files>
 </project-private>

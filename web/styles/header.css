@@ -26,10 +26,6 @@
     z-index: 1;
 }
 
-.header__nav {
-    z-index: 2;
-}
-
 .header__nav__logo {
     display: flex;
     align-items: center;
@@ -61,12 +57,16 @@
 }
 
 .header__search__wrapper {
-    width: 34%;
+    width: 30%;
     display: flex;
     align-items: center;
-    padding: 9px;
+    padding: 6px;
     border-radius: 23px;
     border: 2px solid #d7d7d7;
+}
+
+.header__search__icon {
+    padding-left: 5px;
 }
 
 .header__search__wrapper:focus-within {
@@ -112,6 +112,7 @@
     border-radius: 12px;
     box-shadow: 0 -4px 32px rgba(0,0,0,.2);
     display: none;
+    /*animation: fadeIn 0.3s ease;*/
 }
 
 .header__profile__ava__name {
@@ -167,3 +168,105 @@
     width: 50px;
     border-radius: 50%;
 }
+
+.header__profile__courses__wrapper {
+    position: relative;
+}
+
+.header__profile__courses__detail {
+    position: absolute;
+    top: 45px;
+    right: 0;
+    background-color: #fff;
+    box-shadow: 0 -4px 32px rgba(0,0,0,.2);
+    border-radius: 10px;
+    color: #1d2129;
+    padding: 20px 10px;
+    display: none;
+}
+
+.header__profile__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px 10px 6px 10px;
+}
+
+.header__profile__top h3 {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.header__profile__top__show__all {
+    font-size: 14px;
+    color: #f05123;
+    text-decoration: none;
+}
+
+.header__courses__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    max-height: 438px;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.header__courses__item:last-child {
+    margin-bottom: 0;
+}
+
+.header__courses__item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 16px;
+}
+
+.header__courses__item:hover {
+    background-color: rgba(22, 24, 35, .05);
+}
+.header__courses__item__link__img {
+    display: block;
+    text-decoration: none;
+}
+
+.header__courses__item__img {
+    width: 120px;
+    border-radius: 8px;
+}
+
+.header__courses__item__detail {
+    min-width: 232px;
+    margin-left: 12px;
+}
+
+.header__courses__item__title {
+    color: #333;
+    font-size: 15px;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.header__courses__since__learn {
+    font-size: 13px;
+    margin-top: 2px;
+}
+
+.header__courses__percent__complete {
+    height: 8px;
+    background-color: #ddd;
+    border-radius: 8px;
+    margin-top: 7px;
+}
+
+/*@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}*/
