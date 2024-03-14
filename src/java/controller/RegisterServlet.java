@@ -98,7 +98,7 @@ public class RegisterServlet extends HttpServlet {
         if (error.equalsIgnoreCase("")) {
             int rowEff = udb.createUser(username, password, phone);
             if (rowEff > 0) {
-                response.sendRedirect("/login.jsp");
+                response.sendRedirect("/page/site/login.jsp");
             } else {
                 request.setAttribute("error", "Register failed!");
                 request.getRequestDispatcher("/page/site/register.jsp").forward(request, response);

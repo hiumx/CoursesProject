@@ -4,6 +4,7 @@
  */
 package controller;
 
+import dal.BlogDAO;
 import dal.CourseDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -60,10 +61,13 @@ public class SearchCourseServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String searchTerm = request.getParameter("term");
-        System.out.println(searchTerm);
+        String keySearch = request.getParameter("term");
+        
         CourseDAO cdb = new CourseDAO();
-        List<Course> listCoursesSearch = cdb.searchCoursesByKeyword(searchTerm, response);
+        BlogDAO bdb = new BlogDAO();
+        
+        cdb.searchCoursesByKeyword(keySearch, response);
+        bdb.searchBlogsByKeyword(keySearch, response);
     }
 
     /**

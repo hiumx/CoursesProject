@@ -31,29 +31,27 @@
                     <div class="header__search__result">
                         <div class="header__search__result__keyword">
                             <i class="fa-solid fa-magnifying-glass search__keyword__icon"></i>
-                            <p class="header__search__keyword">Kết quả của </p>
+                            <p class="header__search__keyword"></p>
                         </div>
-                        <div class="header__search__result__title">
+                        <div>
+                             <div class="header__search__result__title">
                             <h5>Khóa học</h5>
                             <a class="header__search__result__view__more" href="#">Xem thêm</a>
                         </div>
-                        <ul class="header__search__result__list">
-                            <li class="header__search__result__item">
-                                <a href="#" class="header__search__result__item__link">
-                                    <img class="header__search__result__item__img" src="../../../images/courses/html-css.png" alt="course-img"/>
-                                    <p>Kiến thức nhập môn IT</p>
-                                </a>
-                            </li>
-                            <li class="header__search__result__item">
-                                <a href="#" class="header__search__result__item__link">
-                                    <img class="header__search__result__item__img" src="../../../images/courses/html-css.png" alt="course-img"/>
-                                    <p>Kiến thức nhập môn IT</p>
-                                </a>
-                            </li>
+                        <ul class="header__search__result__list" id="search-result-courses">
                         </ul>
+                        </div>
+                        <div>
+                            <div class="header__search__result__title">
+                                <h5>Bài viết</h5>
+                                <a class="header__search__result__view__more" href="#">Xem thêm</a>
+                            </div>
+                            <ul class="header__search__result__list" id="search-result-blogs">
+                            </ul>
+                        </div>
+                       
                     </div>
                 </div>
-                <!--<div id="searchResult"></div>-->
 
                 <c:if test="${sessionScope.user == null}">
                     <div class="header__auth">

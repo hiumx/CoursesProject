@@ -4,6 +4,9 @@
  */
 package dal;
 
+import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -141,46 +144,27 @@ public class BlogDAO extends DBContext {
         }
         return 0;
     }
-//
-//    public Blog getBlogById(int id) {
-//        String sql = "SELECT * FROM Categories WHERE id = ?";
-//        try {
-//            PreparedStatement st = connection.prepareStatement(sql);
-//            st.setInt(1, id);
-//            ResultSet rs = st.executeQuery();
-//            if (rs.next()) {
-//                Blog c = new Blog(rs.getInt("id"), rs.getString("name"), rs.getString("describe"));
-//                return c;
-//            }
-//        } catch (SQLException e) {
-//            System.out.println(e);
-//        }
-//        return null;
-//    }
-//
-//    public void deleteBlogById(int id) {
-//        String sql = "DELETE FROM Categories WHERE id = ?";
-//        try {
-//            PreparedStatement st = connection.prepareStatement(sql);
-//            st.setInt(1, id);
-//            st.executeUpdate();
-//        } catch (SQLException e) {
-//            System.out.println(e);
-//        }
-//    }
-//
-//    public void updateABlog(Blog c) {
-//        String sql = "UPDATE Categories SET name = ?, describe = ? WHERE id = ?";
-//        try {
-//            PreparedStatement st = connection.prepareStatement(sql);
-//            st.setString(2, c.getDescribe());
-//            st.setInt(3, c.getId());
-//            st.setString(1, c.getName());
-//            st.executeUpdate();
-//        } catch (SQLException e) {
-//            System.out.println(e);
-//        }
-//    }
+    
+    public void searchBlogsByKeyword(String keyword, HttpServletResponse response) throws IOException {
+        String sql = "SELECT * FROM Blog WHERE Title LIKE ? OR Content LIKE ?";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setString(1, "%" + keyword + "%");
+            st.setString(2, "%" + keyword + "%");
+            ResultSet rs = st.executeQuery();
+            PrintWriter out = response.getWriter();
+            while (rs.next()) {
+                out.println("<li class=\"header__search__result__item\">"
+                        + "<a href=\"blogs?id="+ rs.getInt("Id") +"\" class=\"header__search__result__item__link\">"
+                        + "<img class=\"header__search__result__item__img\" src=\"../../." + rs.getString("Image") + "\" alt=\"course-img\"/>"
+                        + "<p>" + rs.getString("Title") + "</p>"
+                        + "</a>"
+                        + "</li>");
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+    }
 
     public static void main(String[] args) {
         BlogDAO c = new BlogDAO();

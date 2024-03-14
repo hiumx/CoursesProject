@@ -127,29 +127,6 @@ public class UserDAO extends DBContext {
         return null;
     }
 
-//    public void deleteUserById(int id) {
-//        String sql = "DELETE FROM Categories WHERE id = ?";
-//        try {
-//            PreparedStatement st = connection.prepareStatement(sql);
-//            st.setInt(1, id);
-//            st.executeUpdate();
-//        } catch (SQLException e) {
-//            System.out.println(e);
-//        }
-//    }
-//
-//    public void updateAUser(User c) {
-//        String sql = "UPDATE Categories SET name = ?, describe = ? WHERE id = ?";
-//        try {
-//            PreparedStatement st = connection.prepareStatement(sql);
-//            st.setString(2, c.getDescribe());
-//            st.setInt(3, c.getId());
-//            st.setString(1, c.getName());
-//            st.executeUpdate();
-//        } catch (SQLException e) {
-//            System.out.println(e);
-//        }
-//    }
     public static void main(String[] args) {
         UserDAO c = new UserDAO();
         List<User> result = c.getAll();

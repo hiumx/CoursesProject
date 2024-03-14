@@ -10,6 +10,10 @@ const profileCoursesElement = document.querySelector('.header__profile__courses'
 const profileCoursesDetail = document.querySelector('.header__profile__courses__detail');
 const headerSearchInput = document.querySelector('.header__search');
 const headerResultSearch = document.querySelector('.header__search__result');
+const listResultSearch = document.querySelector('.header__search__result__list');
+const textSearch = document.querySelector('.header__search__keyword');
+const searchInput = document.getElementById("header__search");
+
 
 
 navbarIconElement.onclick = function () {
@@ -59,35 +63,47 @@ if (profileCoursesElement !== null) {
     };
 }
 
-
-
-//$(document).ready(function () {
-//    $('#header__search').on('keyup', function () {
-//        var searchTerm = $(this).val();
-//        $.ajax({
-//            type: 'GET',
-//            url: '/courses/search-courses',
-//            data: {term: searchTerm},
-//            success: function (response) {
-//                $('#searchResult').html(response);
-//            }
-//        });
-//    });
-//});
-
 function search() {
-    var searchTerm = document.getElementById("header__search").value;
-    if(searchTerm.length > 0) {
+    var keyword = searchInput.value;
+    if (keyword.length > 0) {
         headerResultSearch.style.display = 'block';
-    } else if (searchTerm.length === 0) {
+        textSearch.innerHTML = `<span>Kết quả cho "${keyword}"</span>`;
+    } else if (keyword.length === 0) {
         headerResultSearch.style.display = 'none';
     }
     $.ajax({
         type: "GET",
-        url:'/courses/search-courses',
-        data: {term: searchTerm},
+        url: '/courses/search-courses',
+        data: {term: keyword},
         success: function (response) {
-            $("#searchResult").html(response);
+            const {listCoursesItem, listBlogsItem} = splitStringbyLiTag(response);
+            if (listCoursesItem.length === 0) {
+                $('#search-result-courses').html("<p class=\"header__search__not__found\">Không tìm thấy khóa học phù hợp.</p>");
+            } else {
+                $('#search-result-courses').html(listCoursesItem);
+            }
+            if (listBlogsItem.length === 0) {
+                $('#search-result-blogs').html("<p class=\"header__search__not__found\">Không tìm thấy bài viết phù hợp.</p>");
+            } else {
+                $('#search-result-blogs').html(listBlogsItem);
+            }
         }
     });
 }
+
+const splitStringbyLiTag = string => {
+    const listItems = string.split("<li ");
+    const listCoursesItem = [];
+    const listBlogsItem = [];
+    for (var i = 0; i < listItems.length; i++) {
+        if (listItems[i].includes('courses')) {
+            listCoursesItem.push(`<li ${listItems[i]}`);
+        } else if (listItems[i].includes('blogs')) {
+            listBlogsItem.push(`<li ${listItems[i]}`);
+        }
+    }
+    return {
+        listCoursesItem,
+        listBlogsItem
+    };
+};
