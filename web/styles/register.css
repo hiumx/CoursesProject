@@ -160,3 +160,7 @@ label {
     color: red;
     font-size: 14px;
 }
+
+.fg__login__register {
+    margin-top: 20px;
+}

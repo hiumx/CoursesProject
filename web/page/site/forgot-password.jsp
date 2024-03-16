@@ -1,0 +1,87 @@
+<%-- 
+    Document   : login
+    Created on : Feb 28, 2024, 10:10:08 AM
+    Author     : Admin
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Forgot password</title>
+        <link rel="stylesheet" href="../../styles/login.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+    <body>
+        <div class="login__wrapper">
+            <div class="login__content">
+                <h2 class="login__title">Khôi phục mật khẩu</h2>
+                <form action="/forgot-password" method="POST" class="login__form">
+                    <div class="login__form__username">
+                        <label for="username">Tên người dùng</label>
+                        <input 
+                            type="text" 
+                            name="username" 
+                            id="username" 
+                            class="login__form__input"
+                            value="${requestScope.username}"
+                            required
+                            />
+                    </div>
+                    <div class="login__form__username">
+                        <label for="phone">Số điện thoại</label>
+                        <input 
+                            type="text" 
+                            name="phone" 
+                            id="phone" 
+                            class="login__form__input"
+                            value="${requestScope.phone}"
+                            required
+                            />
+                    </div>
+                    <div class="login__form__password">
+                        <label for="password">Mật khẩu mới</label>
+                        <input 
+                            type="password" 
+                            name="password" 
+                            id="password"
+                            class="login__form__input"
+                            value="${requestScope.password}"
+                            required
+                            />
+                        <div class="login__form__eye__icon__wrapper" onclick="handleShowPassword()">
+                            <i class="fa-regular fa-eye login__form__eye__icon"></i>
+                        </div>
+
+                    </div>
+                    <div class="login__form__password">
+                        <label for="password">Nhập lại mật khẩu mới</label>
+                        <input 
+                            type="password" 
+                            name="confirm-password" 
+                            id="confirm-password"
+                            class="login__form__input"
+                            value="${requestScope.confirmPassword}"
+                            required
+                            />
+                        <div class="login__form__eye__icon__wrapper" onclick="handleShowConfirmPassword()">
+                            <i class="fa-regular fa-eye login__form__eye__icon"></i>
+                        </div>
+
+                    </div>
+                            <p class="login__error__msg ${requestScope.statusMsg.equals('success') ? "login__success__msg" : ""}">${requestScope.msg}</p>
+
+                    <button type="submit" class="login__form__btn">Xác nhận</button>
+                </form>
+                
+                <div class="fg__login__register">
+                    <a href="/login" class="login__register__link">Đăng nhập</a>
+                </div>
+            </div>
+        </div>
+                    
+                     <script src="../../js/register.js"></script>
+
+    </body>
+</html>

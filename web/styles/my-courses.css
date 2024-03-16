@@ -69,4 +69,26 @@
 .mc__item__img {
     width: 100%;
     border-radius: 16px;
+    min-height: 173px;
+}
+
+.mc__since__status {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.mc__since__status p {
+    margin: 0;
+    padding: 0;
+}
+
+.mc__since__status span {
+    font-size: 15px;
+    color: #997798;
+}
+
+.mc__pending {
+    pointer-events: none;
+    cursor: not-allowed;
 }

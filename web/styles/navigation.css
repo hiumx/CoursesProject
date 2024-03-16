@@ -2,9 +2,10 @@
 .header__nav {
     width: calc(16% + 3px);
     height: 100vh;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
+    bottom: 0;
     background-color: #fff;
     transform: translateX(-100%);
     opacity: 0;
@@ -95,7 +96,7 @@
 
 .overlay {
     position: fixed;
-    left: 16%;
+    left: calc(16% + 3px);
     top: 0;
     right: 0;
     bottom: 0;

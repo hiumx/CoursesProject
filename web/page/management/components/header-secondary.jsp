@@ -14,11 +14,8 @@
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3 position-fixed fixed-top fixed-left fixed-right">
             <a class="navbar-brand" href="/management">Management</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
 
-            <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse d-flex justify-content-between align-items-center" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
                         <a class="nav-link" href="management?type=user">User</a>
@@ -30,8 +27,9 @@
                         <a class="nav-link" href="/management?type=blog">Blog</a>
                     </li>
                 </ul>
-                <div>
-                    <p style="margin: 0; padding: 0">${sessionScope.user.username}</p>
+                <div class="d-flex align-items-center">
+                    <p style="margin: 0; padding: 0; color: #fff; margin-right: 40px;">Hi ${sessionScope.user.username} !</p>
+                    <a href="/home" style="margin: 0; padding: 0; color: #fff; margin-right: 20px; text-decoration: none">Home page</a>
                     <a href="/logout" class="btn btn-secondary">Logout</a>
                 </div>
                 

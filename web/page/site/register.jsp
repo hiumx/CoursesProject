@@ -16,98 +16,78 @@
     <body>
         <div class="register__wrapper">
             <div class="register__content">
-                <h2 class="register__title">Register</h2>
+                <h2 class="register__title">Đăng kí</h2>
                 <form action="/register" method="POST" class="register__form">
                     <div class="register__form__username">
-                        <label for="username">Username</label>
+                        <label for="username">Tên người dùng</label>
                         <input 
                             type="text" 
                             name="username" 
                             id="username" 
                             class="register__form__input"
-                            placeholder="Type your username"
                             value="${requestScope.username}"
                             required
-                        />
+                            />
                     </div>
                     <div class="register__form__phone">
-                        <label for="phone">Phone number</label>
+                        <label for="phone">Số điện thoại</label>
                         <input 
                             type="text" 
                             name="phone" 
                             id="phone" 
                             class="register__form__input"
-                            placeholder="Type your phone"
                             value="${requestScope.phone}"
                             required
-                        />
+                            />
                     </div>
                     <div class="register__form__password">
-                        <label for="password">Password</label>
+                        <label for="password">Mật khẩu</label>
                         <input 
                             type="password" 
                             name="password" 
                             id="password"
                             class="register__form__input"
-                            placeholder="Type your password"
                             value="${requestScope.password}"
                             required
-                        />
+                            />
                         <div class="register__form__eye__icon__wrapper" onclick="handleShowPassword()">
                             <i class="fa-regular fa-eye register__form__eye__icon"></i>
                         </div>
-                        
+
                     </div>
                     <div class="register__form__confirm__password">
-                        <label for="password">Confirm Password</label>
+                        <label for="password">Nhập lại mật khẩu</label>
                         <input 
                             type="password" 
                             name="confirm-password" 
                             id="confirm-password"
                             class="register__form__input"
-                            placeholder="Type your confirm password"
                             value="${requestScope.confirmPassword}"
                             required
-                        />
+                            />
                         <div class="register__form__eye__icon__wrapper" onclick="handleShowConfirmPassword()">
                             <i class="fa-regular fa-eye register__form__eye__icon"></i>
                         </div>
-                        
+
                     </div>
                     <p class="register__error__message">${requestScope.error}</p>
                     <button type="submit" class="register__form__btn">Register</button>
                 </form>
                 <div class="register__other__sign__up">
-                    <p>Or Register Using</p>
+                    <p>Or sign up</p>
                     <div class="register__other__icons">
-                            <i class="fa-brands fa-facebook register__facebook__icon"></i>
+                        <i class="fa-brands fa-facebook register__facebook__icon"></i>
                         <i class="fa-brands fa-twitter register__twitter__icon"></i>
                         <i class="fa-brands fa-google register__google__icon"></i>
                     </div>
                 </div>
                 <div class="register__register">
-                    <p class="register__register__question">Already have an account?</p>
-                    <a href="/login" class="register__register__link">Login</a>
+                    <p class="register__register__question">Bạn đã có tài khoản rồi?</p>
+                    <a href="/login" class="register__register__link">Đăng nhập</a>
                 </div>
             </div>
         </div>
-        
-        <script type="text/javascript">
-            const passwordInput = document.querySelector('#password');
-            const confirmPasswordInput = document.querySelector('#confirm-password');
-            const handleShowPassword = () => {
-                if(passwordInput.type === 'password')
-                    passwordInput.type = 'text';
-                else
-                    passwordInput.type = 'password';
-            };
-            
-            const handleShowConfirmPassword = () => {
-                if(confirmPasswordInput.type === 'password')
-                    confirmPasswordInput.type = 'text';
-                else
-                    confirmPasswordInput.type = 'password';
-            }
-        </script>
+
+        <script src="../../js/register.js"></script>
     </body>
 </html>

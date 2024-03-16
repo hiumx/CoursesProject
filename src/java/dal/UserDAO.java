@@ -66,7 +66,6 @@ public class UserDAO extends DBContext {
         return false;
     }
 
-    
     public int createUser(String username, String password, String phone) {
         String sql = "INSERT INTO [User] (Username, Password, Phone) VALUES(?,?,?)";
         try {
@@ -104,7 +103,7 @@ public class UserDAO extends DBContext {
         }
         return null;
     }
-    
+
     public User checkLogin(String username, String password) {
         String sql = "SELECT * FROM [User] WHERE Username = ? AND Password = ?";
         try {
@@ -112,7 +111,7 @@ public class UserDAO extends DBContext {
             st.setString(1, username);
             st.setString(2, password);
             ResultSet rs = st.executeQuery();
-            if(rs.next()) {
+            if (rs.next()) {
                 return new User(rs.getInt("Id"),
                         rs.getString("Username"),
                         rs.getString("Password"),
@@ -125,6 +124,41 @@ public class UserDAO extends DBContext {
             System.out.println(e);
         }
         return null;
+    }
+
+    public User checkUserValid(String username, String phone) {
+        String sql = "SELECT * FROM [User] WHERE Username = ? AND Phone = ?";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setString(1, username);
+            st.setString(2, phone);
+            ResultSet rs = st.executeQuery();
+            if (rs.next()) {
+                return new User(rs.getInt("Id"),
+                        rs.getString("Username"),
+                        rs.getString("Password"),
+                        rs.getString("Phone"),
+                        rs.getString("Role"),
+                        rs.getString("Image")
+                );
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return null;
+    }
+    
+    public int updatePasword(int userId, String newPassword) {
+        String sql = "UPDATE [User] SET Password = ? WHERE Id = ?";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setString(1, newPassword);
+            st.setInt(2, userId);
+            return st.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return 0;
     }
 
     public static void main(String[] args) {

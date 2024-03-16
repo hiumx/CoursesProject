@@ -1,0 +1,74 @@
+.wb__content {
+    margin: 100px 30px 50px;
+}
+
+.wb__title {
+    border: none;
+    color: #b3b3b1;
+    font-size: 32px;
+    font-weight: 500;
+    min-height: 48px;
+    width: 100%;
+    outline: none;
+    line-height: 1.4;
+    opacity: 0.8;
+    margin-bottom: 30px;
+}
+
+.wb__content__detail {
+    width: 100%;
+    min-height: 130px;
+    padding: 10px;
+}
+
+.wb__detail h3 {
+    font-size: 20px;
+    color: #8c8c82;
+    font-weight: normal;
+    margin-bottom: 16px;
+}
+
+.wb__content__detail {
+    font-size: 18px;
+    outline: none;
+    border: 1px solid #ebc4c4;
+}
+
+.wb__content__detail:focus-visible {
+    outline: 1px solid #e2e2e2;
+}
+
+.wb__img__wrapper {
+    margin-top: 4px;
+}
+
+.wb__img__lable {
+    font-size: 20px;
+    margin: 0;
+    color: #8c8c82;
+    display: block;
+}
+
+.wb__input__img {
+    margin-top: 16px;
+}
+
+.wb__upload__btn {
+    margin: 36px 0px;
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 6px 0;
+    background-color: #ffbcbc;
+    font-weight: 500;
+    border-radius: 100px;
+    text-decoration: none;
+    color: #565656;
+    display: block;
+    text-align: center;
+}
+
+.wb__upload__btn:hover {
+    opacity: 0.8;
+}
+

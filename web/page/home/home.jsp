@@ -17,7 +17,6 @@
 
         <div class="home__wrapper">
             <%@include file="./components/header.jsp" %>
-
             <div class="home__content">
                 <%@include file="courses.jsp" %>
 
@@ -27,6 +26,6 @@
 
             <%@include file="./components/footer.jsp" %>
         </div>
-
+        <script src="../../js/home.js"></script>
     </body>
 </html>

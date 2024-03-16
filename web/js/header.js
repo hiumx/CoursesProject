@@ -15,7 +15,6 @@ const textSearch = document.querySelector('.header__search__keyword');
 const searchInput = document.getElementById("header__search");
 
 
-
 navbarIconElement.onclick = function () {
     navbarElement.style.transform = 'translateX(0)';
     navbarElement.style.opacity = '1';
@@ -42,26 +41,6 @@ overElement.onclick = function () {
     document.body.style.paddingRight = "0";
     headerElement.style.marginRight = "0";
 };
-
-if (userIconElement !== null) {
-    userIconElement.onclick = function () {
-        if (userDetailElement.style.display === 'block') {
-            userDetailElement.style.display = '';
-        } else if (userDetailElement.style.display === '') {
-            userDetailElement.style.display = 'block';
-        }
-    };
-}
-
-if (profileCoursesElement !== null) {
-    profileCoursesElement.onclick = function () {
-        if (profileCoursesDetail.style.display === 'block') {
-            profileCoursesDetail.style.display = '';
-        } else if (profileCoursesDetail.style.display === '') {
-            profileCoursesDetail.style.display = 'block';
-        }
-    };
-}
 
 function search() {
     var keyword = searchInput.value;
@@ -107,3 +86,19 @@ const splitStringbyLiTag = string => {
         listBlogsItem
     };
 };
+//
+const handleClickOutsideElement = (e1, e2) => {
+    document.addEventListener('click', e => {
+        if (!e1.contains(e.target)) 
+            e1.style.display = 'none';
+        if (e2.contains(e.target)) {
+            e1.style.display = 'block';
+        } else if (e2.contains(e.target)) {
+            e1.style.display = 'none';
+        }
+    });
+};
+
+handleClickOutsideElement(profileCoursesDetail, profileCoursesElement);
+handleClickOutsideElement(userDetailElement, userIconElement);
+

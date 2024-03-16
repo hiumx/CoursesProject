@@ -22,7 +22,7 @@
                 <div class="header__nav__logo">
                     <i class="fa-solid fa-bars header__bars__icon"></i>
                     <a href="/home" class="header__logo__wrapper">
-                        <img class="header__logo" src="images/logo-1.png" alt="logo-img"/>
+                        <img class="header__logo" src="../../../images/logo-1.png" alt="logo-img"/>
                     </a>
                 </div>
                 <div class="header__search__wrapper">
@@ -34,12 +34,12 @@
                             <p class="header__search__keyword"></p>
                         </div>
                         <div>
-                             <div class="header__search__result__title">
-                            <h5>Khóa học</h5>
-                            <a class="header__search__result__view__more" href="#">Xem thêm</a>
-                        </div>
-                        <ul class="header__search__result__list" id="search-result-courses">
-                        </ul>
+                            <div class="header__search__result__title">
+                                <h5>Khóa học</h5>
+                                <a class="header__search__result__view__more" href="#">Xem thêm</a>
+                            </div>
+                            <ul class="header__search__result__list" id="search-result-courses">
+                            </ul>
                         </div>
                         <div>
                             <div class="header__search__result__title">
@@ -49,20 +49,24 @@
                             <ul class="header__search__result__list" id="search-result-blogs">
                             </ul>
                         </div>
-                       
+
                     </div>
                 </div>
 
                 <c:if test="${sessionScope.user == null}">
                     <div class="header__auth">
-                        <a class="header__auth__login" href="/login">Login</a>
-                        <a class="header__auth__register" href="/register">Regiter</a>
+                        <a class="header__auth__login" href="/login">Đăng nhập</a>
+                        <a class="header__auth__register" href="/register">Đăng kí</a>
                     </div>
                 </c:if>
 
 
                 <c:if test="${sessionScope.user != null}">
                     <div class="header__profile">
+                        <c:if test="${sessionScope.user.role.equals('R1')}">
+                            <a href="/management" class="header__management__link">MANAGEMENT</a>
+
+                        </c:if>
                         <div class="header__profile__courses__wrapper">
                             <p class="header__profile__courses">Khóa học của tôi</p>
                             <div class="header__profile__courses__detail">
@@ -96,10 +100,10 @@
                             <i class="fa-solid fa-bell header__profile__bell__icon"></i>
                         </div>
                         <div class="header__profile__wrapper">
-                            <i class="fa-solid fa-user header__profile__icon"></i>
+                            <img src="../../.${sessionScope.user.image}" class="header__profile__icon" alt="user-img"/> 
                             <div class="header__profile__detail">
                                 <div class="header__profile__ava__name">
-                                    <img class="header__profile__avatar" src="${sessionScope.user.image}" alt="avarta"/>
+                                    <img class="header__profile__avatar" src="../../.${sessionScope.user.image}" alt="avarta"/>
                                     <div class="header__profile__name">
                                         <h5>${sessionScope.user.username}</h5>
                                         <p>@${sessionScope.user.username}</p>
@@ -110,8 +114,8 @@
                                         <a class="header__profile__item__link" href="#">Trang cá nhân</a>
                                     </li>
                                     <li class="header__profile__item">
-                                        <a class="header__profile__item__link" href="#">Viết blog</a>
-                                        <a class="header__profile__item__link" href="#">Bài viết của tôi</a>
+                                        <a class="header__profile__item__link" href="/blogs/write-new-blog">Viết blog</a>
+                                        <a class="header__profile__item__link" href="/my-blogs">Bài viết của tôi</a>
                                     </li>
                                     <li class="header__profile__item">
                                         <a class="header__profile__item__link" href="#">Bài viết đã lưu</a>
@@ -128,6 +132,6 @@
             </div>
         </header>
 
-        <script src="js/header.js"></script>
+        <script src="../../../js/header.js"></script>
     </body>
 </html>

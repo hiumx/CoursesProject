@@ -17,7 +17,7 @@
 }
 
 .login__content {
-    min-width: 400px;
+    width: 400px;
     background: #fff;
     margin: 0 auto;
     border-radius: 28px;
@@ -154,7 +154,19 @@ label {
 }
 
 .login__error__msg {
-    margin: -10px 0 10px 0;
+    margin: -6px 0 10px 0;
     font-size: 14px;
     color: red;
+    text-align: center;
+}
+
+/*forgot password*/
+
+.fg__login__register {
+    margin: 17px 0 4px;
+    text-align: center;
+}
+
+.login__success__msg {
+    color: green;
 }

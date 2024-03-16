@@ -77,7 +77,7 @@
                     </c:if>
                 </div>
                 <div class="col-lg-4 col-md-12 course__detail__more__info">
-                    <img class="course__detail__img" src="${c.image}" alt="course-img"/>
+                    <img class="course__detail__img" src="../../.${c.image}" alt="course-img"/>
                     <div class="course__detail__more">
                         <h1 class="course__detail__type">Miễn phí</h1>
                         <a href="/courses/join?courseId=${c.id}" class="course__detail__register__btn" type="button">Đăng kí học</a>

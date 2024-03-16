@@ -27,16 +27,16 @@
                     <a class="header__nav__item--link" href="#">Khóa học</a>
                 </li>
                 <li class="header__nav__item">
-                    <a href="${sessionScope.user == null ? "/login" : "/my-courses"}" class="header__nav__item--link">Khóa học của tôi</a>
+                    <a href="/my-courses" class="header__nav__item--link">Khóa học của tôi</a>
                 </li>
                 <li class="header__nav__item">
+                    <a class="header__nav__item--link" href="/blogs/write-new-blog">Viết bài viết mới</a>
+                </li>
+                <li class="header__nav__item">
+                    <a class="header__nav__item--link" href="/my-blogs">Bài viết của tôi</a>
+                </li>
+                  <li class="header__nav__item">
                     <a class="header__nav__item--link" href="#">Lộ trình</a>
-                </li>
-                <li class="header__nav__item">
-                    <a class="header__nav__item--link" href="#">Viết bài viết mới</a>
-                </li>
-                <li class="header__nav__item">
-                    <a class="header__nav__item--link" href="#">Tất cả bài viết</a>
                 </li>
                 <li class="header__nav__item">
                     <a class="header__nav__item--link" href="#">Chứng chỉ</a>

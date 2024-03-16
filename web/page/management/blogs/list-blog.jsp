@@ -39,8 +39,6 @@
                         <tr>
                             <th>#</th>
                             <th>Title</th>
-                            <th>Image</th>
-                            <th>Like</th>
                             <th>Username</th>
                             <th>Status</th>
                                 <c:if test="${!status.equals('all')}">
@@ -54,9 +52,7 @@
                             <tr>
                                 <td>${loop.index+1}</td>
                                 <td>${b.title}</td>
-                                <td>${b.image}</td>
-                                <td>${b.like}</td>
-                                <td>${b.user.getUsername()}</td>
+                                <td>${b.user.username}</td>
                                 <td>${b.status}</td>
                                 <c:choose> 
                                     <c:when test="${status == null}">

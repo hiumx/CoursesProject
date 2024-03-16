@@ -4,8 +4,6 @@
  */
 package controller;
 
-import dal.BlogDAO;
-import dal.CourseDAO;
 import dal.UserDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -14,18 +12,14 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
-import java.util.List;
-import model.Blog;
-import model.Course;
 import model.User;
 
 /**
  *
  * @author Admin
  */
-@WebServlet(name = "ManagementServlet", urlPatterns = {"/management"})
-public class ManagementServlet extends HttpServlet {
+@WebServlet(name = "ForgotPasswordServlet", urlPatterns = {"/forgot-password"})
+public class ForgotPasswordServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -44,10 +38,10 @@ public class ManagementServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ManagementServlet</title>");
+            out.println("<title>Servlet ForgotPasswordServlet</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ManagementServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet ForgotPasswordServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -65,50 +59,7 @@ public class ManagementServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String type = "user";
-        String typeRaw = request.getParameter("type");
-        if (typeRaw != null) {
-            type = typeRaw;
-        }
-
-        switch (type) {
-            case "user":
-                UserDAO udb = new UserDAO();
-                List<User> listUsers = udb.getAll();
-                request.setAttribute("listUsers", listUsers);
-                request.getRequestDispatcher("/page/management/management.jsp").forward(request, response);
-                break;
-            case "course":
-                CourseDAO cdb = new CourseDAO();
-                List<Course> listCourses = cdb.getAll();
-                request.setAttribute("listCourses", listCourses);
-                request.setAttribute("type", type);
-                request.getRequestDispatcher("/page/management/management.jsp").forward(request, response);
-                break;
-            case "blog":
-                BlogDAO bdb = new BlogDAO();
-                String status = request.getParameter("status");
-                List<Blog> listBlogs = new ArrayList<>();
-                if (status == null) {
-                    listBlogs = bdb.getAll();
-                    request.setAttribute("status", "all");
-                } else if (status.equals("confirmed")) {
-                    listBlogs = bdb.getBlogsByStatus("Confirmed");
-                } else if (status.equals("pending")) {
-                    listBlogs = bdb.getBlogsByStatus("Pendding");
-                    request.setAttribute("status", "pending");
-                }
-                ;
-                request.setAttribute("listBlogs", listBlogs);
-                request.setAttribute("type", type);
-                request.getRequestDispatcher("/page/management/management.jsp").forward(request, response);
-                break;
-            default:
-                throw new AssertionError();
-        }
-
-        request.setAttribute("type", type);
-        request.getRequestDispatcher("page/management/management.jsp").forward(request, response);
+        request.getRequestDispatcher("/page/site/forgot-password.jsp").forward(request, response);
     }
 
     /**
@@ -122,7 +73,45 @@ public class ManagementServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        String username = request.getParameter("username");
+        String phone = request.getParameter("phone");
+        String password = request.getParameter("password");
+        String confirmPassword = request.getParameter("confirm-password");
+
+        String passwordPattern = "^.*(?=.{8,})(?=..*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).*$";
+
+        UserDAO udb = new UserDAO();
+        User user = udb.checkUserValid(username, phone);
+
+        String msg = "";
+        String statusMsg = "error";
+
+        if (user == null) {
+            msg = "Tên người dùng hoặc số điện thoại không đúng!";
+        } else if (!password.matches(passwordPattern)) {
+            msg = "Password must be at least 8 characters, one lower char,"
+                    + " one upper char and one special char";
+        } else if (!password.equals(confirmPassword)) {
+            msg = "Confirm password not matched!";
+        } else {
+            if (udb.updatePasword(user.getId(), password) > 0) {
+                msg = "Khôi phục mật khẩu thành công.";
+                statusMsg = "success";
+            } else {
+                msg = "Something wrong from server!";
+            }
+        }
+        if(statusMsg.equalsIgnoreCase("error")) {
+             request.setAttribute("username", username);
+             request.setAttribute("phone", phone);
+             request.setAttribute("password", password);
+             request.setAttribute("confirmPassword", confirmPassword);
+        }
+        
+        request.setAttribute("msg", msg);
+        request.setAttribute("statusMsg", statusMsg);
+        request.getRequestDispatcher("/page/site/forgot-password.jsp").forward(request, response);
+
     }
 
     /**

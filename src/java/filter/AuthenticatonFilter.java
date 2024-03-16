@@ -117,9 +117,9 @@ public class AuthenticatonFilter implements Filter {
         HttpSession session = req.getSession();
         User user = (User)session.getAttribute("user");
         System.out.println("USER AUTH:" +user);
-//        if(user == null) {
-//            res.sendRedirect("login");
-//        }
+        if(user == null) {
+            res.sendRedirect("/login");
+        }
         
         Throwable problem = null;
         try {
