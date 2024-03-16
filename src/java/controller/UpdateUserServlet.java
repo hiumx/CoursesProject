@@ -1,0 +1,142 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
+ */
+
+package controller;
+
+import dal.UserDAO;
+import java.io.IOException;
+import java.io.PrintWriter;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import model.User;
+
+/**
+ *
+ * @author Admin
+ */
+@WebServlet(name="UpdateUserServlet", urlPatterns={"/management/users/update"})
+public class UpdateUserServlet extends HttpServlet {
+   
+    /** 
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+    throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet UpdateUserServlet</title>");  
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet UpdateUserServlet at " + request.getContextPath () + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+        }
+    } 
+
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    /** 
+     * Handles the HTTP <code>GET</code> method.
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    throws ServletException, IOException {
+        String userId = request.getParameter("id");
+        
+        try {
+            int id = Integer.parseInt(userId);
+            UserDAO udb = new UserDAO();
+            User user = udb.getUserById(id);
+            request.setAttribute("user", user);
+        } catch (NumberFormatException e) {
+            System.out.println(e);
+        }
+        
+        request.setAttribute("type", "updateUser");
+        request.getRequestDispatcher("/page/management/management.jsp").forward(request, response);
+    } 
+
+    /** 
+     * Handles the HTTP <code>POST</code> method.
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    throws ServletException, IOException {
+        String idRaw = request.getParameter("id");
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        String phone = request.getParameter("phone");
+
+        String pattern = "^.*(?=.{8,})(?=..*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).*$";
+        String phoneRegex = "^\\d{10}$";
+        UserDAO udb = new UserDAO();
+        
+        try {
+            int id = Integer.parseInt(idRaw);
+            boolean isUsernameExist = udb.isUserNameExist(username);
+
+        if (isUsernameExist) {
+            request.setAttribute("error", "User name already existed! Please try anothers.");
+            request.setAttribute("type", "addUser");
+            request.setAttribute("username", username);
+            request.setAttribute("phone", phone);
+            request.setAttribute("password", password);
+            request.getRequestDispatcher("/page/management/management.jsp").forward(request, response);
+        } else if (!phone.matches(phoneRegex)) {
+            request.setAttribute("error", "Phone already existed!. Please enter another.");
+            request.setAttribute("type", "addUser");
+            request.setAttribute("username", username);
+            request.setAttribute("phone", phone);
+            request.setAttribute("password", password);
+            request.getRequestDispatcher("/page/management/management.jsp").forward(request, response);
+        } else if (!password.matches(pattern)) {
+            request.setAttribute("error", "Password must be at least 8 characters, one lower char,"
+                    + " one upper char and one special char");
+            request.setAttribute("type", "addUser");
+            request.setAttribute("username", username);
+            request.setAttribute("phone", phone);
+            request.setAttribute("password", password);
+            request.getRequestDispatcher("/page/management/management.jsp").forward(request, response);
+        } else {
+            int rowEffected = udb.updateUserById(id, username, password, phone);
+            if (rowEffected > 0) {
+                response.sendRedirect("/management");
+            }
+        }
+        } catch (NumberFormatException e) {
+            System.out.println(e);
+        }
+
+        
+    }
+
+    /** 
+     * Returns a short description of the servlet.
+     * @return a String containing servlet description
+     */
+    @Override
+    public String getServletInfo() {
+        return "Short description";
+    }// </editor-fold>
+
+}

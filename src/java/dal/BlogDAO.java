@@ -132,6 +132,20 @@ public class BlogDAO extends DBContext {
         }
         return 0;
     }
+
+    public int updateBlogById(int id, String title, String content) {
+        String sql = "UPDATE [Blog] SET Title = ?, Content = ? WHERE Id = ?";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setString(1, title);
+            st.setString(2, content);
+            st.setInt(3, id);
+            return st.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return 0;
+    }
     
     public int confirmBlogById(int blogId) {
         String sql = "UPDATE [Blog] SET [Status] = 'S2' WHERE Id = ?";

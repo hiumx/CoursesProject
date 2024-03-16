@@ -35,8 +35,8 @@
                             <td>${u.level}</td>
                             <td>${u.joinedNumber}</td>
                             <td>
-                                <button class="btn btn-info">Update</button>
-                                <button class="btn btn-danger">Delete</button>
+                                <a href="/management/courses/update?id=${u.id}" class="btn btn-info">Update</a>
+                                <a href="/management/courses/delete?id=${u.id}" class="btn btn-danger">Delete</a>
                             </td>
                         </tr>
                     </c:forEach>

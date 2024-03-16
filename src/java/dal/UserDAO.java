@@ -147,13 +147,40 @@ public class UserDAO extends DBContext {
         }
         return null;
     }
-    
+
     public int updatePasword(int userId, String newPassword) {
         String sql = "UPDATE [User] SET Password = ? WHERE Id = ?";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             st.setString(1, newPassword);
             st.setInt(2, userId);
+            return st.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return 0;
+    }
+
+    public int updateUserById(int id, String username, String password, String phone) {
+        String sql = "UPDATE [User] SET Username = ?, Phone = ? , Password = ? WHERE Id = ?";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setString(1, username);
+            st.setString(2, phone);
+            st.setString(3, password);
+            st.setInt(4, id);
+            return st.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return 0;
+    }
+
+    public int deleteUserById(int id) {
+        String sql = "DELETE FROM [User] WHERE Id = ?";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setInt(1, id);
             return st.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e);

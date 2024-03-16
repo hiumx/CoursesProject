@@ -95,6 +95,23 @@ public class CourseDAO extends DBContext {
         return 0;
     }
     
+    public int UpdateCourseById(int id, String title, String desc, String content, String target, int level) {
+        String sql = "UPDATE [Course] SET Title = ?, [Description] = ?, Content = ?, Target = ? , Level = ? WHERE Id = ?";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setString(1, title);
+            st.setString(2, desc);
+            st.setString(3, content);
+            st.setString(4, target);
+            st.setInt(5, level);
+            st.setInt(6, id);
+            return st.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return 0;
+    }
+    
     public List<Course> getAllCoursesByUserId(int userId) {
         List<Course> list = new ArrayList<>();
         String sql = "SELECT c.* FROM Course AS c JOIN JoinCourse as jc ON  c.Id = jc.CourseId WHERE jc.UserId = ?";

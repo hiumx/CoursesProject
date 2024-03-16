@@ -57,8 +57,8 @@
                                 <c:choose> 
                                     <c:when test="${status == null}">
                                         <td>
-                                            <a class="btn btn-info">Update</a>
-                                            <a class="btn btn-danger">Delete</a>
+                                            <a href="management/blogs/update?id=${b.id}" class="btn btn-info">Update</a>
+                                            <a href="management/blogs/delete?id=${b.id}" class="btn btn-danger">Delete</a>
                                         </td>
                                     </c:when>
                                     <c:when test="${status.equals('all')}">

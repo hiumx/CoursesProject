@@ -38,12 +38,12 @@ p {
 }
 
 .blog__item__img__wraper {
-    min-height: 174px;
 }
 
 .blog__item__img {
     width: 100%;
     border-radius: 16px;
+    height: 172px;
 }
 
 .blog__item__title {

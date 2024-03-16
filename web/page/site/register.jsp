@@ -74,7 +74,7 @@
                     <button type="submit" class="register__form__btn">Register</button>
                 </form>
                 <div class="register__other__sign__up">
-                    <p>Or sign up</p>
+                    <p>Hoặc đăng kí bằng</p>
                     <div class="register__other__icons">
                         <i class="fa-brands fa-facebook register__facebook__icon"></i>
                         <i class="fa-brands fa-twitter register__twitter__icon"></i>

@@ -35,8 +35,8 @@
                             <td>${u.role}</td>
                             <td>${u.image}</td>
                             <td>
-                                <button class="btn btn-info">Update</button>
-                                <button class="btn btn-danger">Delete</button>
+                                <a href="/management/users/update?id=${u.id}" class="btn btn-info">Update</a>
+                                <a href="/management/users/delete?id=${u.id}" class="btn btn-danger">Delete</a>
                             </td>
                         </tr>
                     </c:forEach>

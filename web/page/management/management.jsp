@@ -30,11 +30,20 @@
                 <c:when test="${type.equalsIgnoreCase('addUser')}">
                     <%@include file="./users/add-user.jsp" %>
                 </c:when>
+                <c:when test="${type.equalsIgnoreCase('updateUser')}">
+                    <%@include file="./users/update-user.jsp" %>
+                </c:when>
                 <c:when test="${type.equalsIgnoreCase('addCourse')}">
                     <%@include file="./courses/add-course.jsp" %>
                 </c:when>
+                <c:when test="${type.equalsIgnoreCase('updateCourse')}">
+                    <%@include file="./courses/update-course.jsp" %>
+                </c:when>
                  <c:when test="${type.equalsIgnoreCase('addBlog')}">
                     <%@include file="./blogs/add-blog.jsp" %>
+                </c:when>
+                 <c:when test="${type.equalsIgnoreCase('updateBlog')}">
+                    <%@include file="./blogs/update-blog.jsp" %>
                 </c:when>
                 <c:otherwise>
                     <%@include file="./users/list-user.jsp" %>
