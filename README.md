@@ -11,5 +11,8 @@
 * Kim Yen
 * Ho Ngoc Minh
 ### Screenshots
-![detail-page-img](https://github.com/hiumx/CoursesProject/blob/main/images/course-detail-page.png)
+![detail-page-img](https://github.com/hiumx/CoursesProject/blob/main/images/courses-home.png)
+![detail-page-img](https://github.com/hiumx/CoursesProject/blob/main/images/my-courses-home.png)
+![detail-page-img](https://github.com/hiumx/CoursesProject/blob/main/images/course-detail.png)
+![detail-page-img](https://github.com/hiumx/CoursesProject/blob/main/images/management.png)
 #### © 2024 mai.xuan.hieu
